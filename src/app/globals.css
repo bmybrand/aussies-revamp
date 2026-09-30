@@ -3,6 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #18181b;
+  --sticky-nav-offset: 80px;
 }
 
 @theme inline {
@@ -67,6 +68,314 @@ html {
   animation: hero-content-enter 500ms ease-out both;
 }
 
+.reveal-scope [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 30px, 0) scale(0.985);
+  transition:
+    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.reveal-scope [data-reveal="left"] {
+  transform: translate3d(-28px, 0, 0);
+}
+
+.reveal-scope [data-reveal="right"] {
+  transform: translate3d(28px, 0, 0);
+}
+
+.reveal-scope [data-reveal="aside"] {
+  transform: translate3d(28px, -50%, 0);
+}
+
+.reveal-scope [data-reveal][data-revealed="true"] {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.reveal-scope [data-reveal="aside"][data-revealed="true"] {
+  transform: translate3d(0, -50%, 0);
+}
+
+.reveal-delay-1 { --reveal-delay: 90ms; }
+.reveal-delay-2 { --reveal-delay: 160ms; }
+.reveal-delay-3 { --reveal-delay: 240ms; }
+.reveal-delay-4 { --reveal-delay: 320ms; }
+.reveal-delay-5 { --reveal-delay: 400ms; }
+
+.reveal-scope [data-reveal="card"] {
+  filter: blur(7px);
+  transform: translate3d(0, 72px, 0) rotate(1.5deg) scale(0.9);
+  transition:
+    opacity 650ms ease,
+    filter 800ms ease,
+    transform 950ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal-scope [data-reveal="card"][data-revealed="true"] {
+  filter: blur(0);
+  transform: translate3d(0, 0, 0) rotate(0) scale(1);
+}
+
+.tools-card .tools-image {
+  filter: saturate(0.55) contrast(0.88);
+  transform: scale(1.2) rotate(-2deg);
+  transition: transform 1250ms cubic-bezier(0.16, 1, 0.3, 1), filter 950ms ease;
+  transition-delay: 300ms;
+}
+
+.tools-card[data-revealed="true"] .tools-image {
+  filter: saturate(1);
+  transform: scale(1);
+}
+
+.tools-card-sales .sales-header,
+.tools-card-sales .sales-total,
+.tools-card-sales .sales-stat,
+.tools-card-inventory .inventory-header,
+.tools-card-inventory .inventory-row,
+.tools-card-payment .payment-notification,
+.tools-card-payment .payment-feature {
+  opacity: 0;
+  transform: translateY(34px) scale(0.86);
+  transition: opacity 500ms ease, transform 760ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.tools-card-sales .sales-header { transform: translateY(-26px); transition-delay: 300ms; }
+.tools-card-sales .sales-total { transform: translateY(24px) scale(0.72); transition-delay: 400ms; }
+.tools-card-sales .sales-stat { transform: translateY(48px) scale(0.78); }
+
+.tools-card-sales .sales-bar-fill {
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition-property: transform;
+  transition-duration: 1050ms;
+  transition-timing-function: cubic-bezier(0.34, 1.35, 0.64, 1);
+}
+
+.tools-card[data-revealed="true"] .sales-header,
+.tools-card[data-revealed="true"] .sales-total,
+.tools-card[data-revealed="true"] .sales-stat,
+.tools-card[data-revealed="true"] .inventory-header,
+.tools-card[data-revealed="true"] .inventory-row,
+.tools-card[data-revealed="true"] .payment-notification,
+.tools-card[data-revealed="true"] .payment-feature {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.tools-card[data-revealed="true"] .sales-bar-fill {
+  transform: scaleY(1);
+}
+
+.tools-card-inventory .inventory-back,
+.tools-card-inventory .inventory-side,
+.tools-card-inventory .inventory-panel {
+  transition: transform 850ms cubic-bezier(0.22, 1, 0.36, 1), opacity 600ms ease;
+}
+
+.tools-card-inventory .inventory-back {
+  opacity: 0;
+  transform: translateY(-55px) scaleX(0.62);
+  transform-origin: center bottom;
+  transition-delay: 330ms;
+}
+
+.tools-card-inventory .inventory-side {
+  opacity: 0;
+  transform: translateX(-58px) scaleY(0.72);
+  transform-origin: right center;
+  transition-delay: 410ms;
+}
+
+.tools-card-inventory .inventory-panel {
+  opacity: 0;
+  transform: translateY(58px) rotate(2.5deg) scale(0.88);
+  transition-delay: 470ms;
+}
+
+.tools-card-inventory .inventory-header { transition-delay: 540ms; }
+.tools-card-inventory .inventory-row {
+  transform: translateY(24px) scale(0.96);
+}
+
+.tools-card-inventory .inventory-thumb,
+.tools-card-inventory .inventory-stock {
+  opacity: 0;
+  transform: scale(0.55);
+  transition: opacity 320ms ease, transform 560ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition-delay: inherit;
+}
+
+.tools-card[data-revealed="true"] .inventory-back,
+.tools-card[data-revealed="true"] .inventory-side,
+.tools-card[data-revealed="true"] .inventory-panel {
+  opacity: 1;
+  transform: translate(0) scale(1);
+}
+
+.tools-card[data-revealed="true"] .inventory-thumb,
+.tools-card[data-revealed="true"] .inventory-stock {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.tools-card-payment .payment-notification {
+  transform: translateX(-70px) rotate(-5deg) scale(0.82);
+  transition-delay: 320ms;
+}
+
+.tools-card-payment .payment-plastic {
+  opacity: 0;
+  transform: translateY(74px) rotate(-25deg) scale(0.72);
+  transform-box: view-box;
+  transform-origin: 173px 188px;
+  transition: opacity 520ms ease 410ms, transform 1100ms cubic-bezier(0.16, 1, 0.3, 1) 410ms;
+}
+
+.tools-card-payment .payment-confirmation {
+  opacity: 0;
+  transform: rotate(-35deg) scale(0.05);
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: opacity 300ms ease 720ms, transform 760ms cubic-bezier(0.34, 1.8, 0.64, 1) 720ms;
+}
+
+.tools-card-payment .payment-feature {
+  transform: translateY(52px) scale(0.64);
+}
+
+.tools-card[data-revealed="true"] .payment-plastic {
+  opacity: 1;
+  transform: translateY(0) rotate(-7deg) scale(1);
+}
+
+.tools-card[data-revealed="true"] .payment-confirmation {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.tools-card-shell {
+  transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 520ms ease, border-color 350ms ease;
+  will-change: transform;
+}
+
+.tools-card-sales .sales-bar-column {
+  transform-origin: bottom;
+  transition: transform 480ms cubic-bezier(0.34, 1.56, 0.64, 1), filter 350ms ease;
+}
+
+.tools-card-inventory .inventory-row {
+  border-radius: 10px;
+  transition-property: opacity, transform, background-color;
+  transition-duration: 500ms, 620ms, 260ms;
+  transition-timing-function: ease, cubic-bezier(0.22, 1, 0.36, 1), ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .tools-card:hover .tools-card-shell {
+    transform: translateY(-10px) scale(1.015);
+    border-color: rgba(0, 143, 116, 0.32);
+    box-shadow: 0 24px 45px rgba(0, 55, 45, 0.18);
+  }
+
+  .tools-card-image[data-revealed="true"]:hover .tools-image {
+    filter: saturate(1.08) contrast(1.02);
+    transform: scale(1.075);
+  }
+
+  .tools-card-sales[data-revealed="true"]:hover .sales-total {
+    transform: scale(1.07);
+    transition-delay: 0ms;
+  }
+
+  .tools-card-sales[data-revealed="true"]:hover .sales-bar-column {
+    filter: brightness(1.12);
+    transform: translateY(-7px) scaleY(1.045);
+  }
+
+  .tools-card-sales[data-revealed="true"]:hover .sales-bar-column:nth-child(2),
+  .tools-card-sales[data-revealed="true"]:hover .sales-bar-column:nth-child(6) { transform: translateY(-11px) scaleY(1.07); }
+  .tools-card-sales[data-revealed="true"]:hover .sales-bar-column:nth-child(3),
+  .tools-card-sales[data-revealed="true"]:hover .sales-bar-column:nth-child(5) { transform: translateY(-5px) scaleY(1.03); }
+
+  .tools-card-sales[data-revealed="true"]:hover .sales-stat {
+    transform: translateY(-6px) scale(1.035);
+    transition-delay: 0ms !important;
+  }
+
+  .tools-card-sales[data-revealed="true"]:hover .sales-stat:nth-child(2) {
+    transform: translateY(-10px) scale(1.045);
+  }
+
+  .tools-card-inventory[data-revealed="true"]:hover .inventory-back {
+    transform: translate(-7px, -8px) scale(1.025);
+    transition-delay: 0ms;
+  }
+
+  .tools-card-inventory[data-revealed="true"]:hover .inventory-side {
+    transform: translate(-8px, 7px) scale(1.02);
+    transition-delay: 0ms;
+  }
+
+  .tools-card-inventory[data-revealed="true"]:hover .inventory-panel {
+    transform: translate(5px, -5px) rotate(0.6deg);
+    transition-delay: 0ms;
+  }
+
+  .tools-card-inventory[data-revealed="true"] .inventory-row:hover {
+    background: rgba(78, 221, 183, 0.11);
+    transform: translateX(5px) scale(1.01);
+    transition-delay: 0ms !important;
+  }
+
+  .tools-card-inventory[data-revealed="true"] .inventory-row:hover .inventory-thumb {
+    transform: rotate(-4deg) scale(1.12);
+    transition-delay: 0ms !important;
+  }
+
+  .tools-card-inventory[data-revealed="true"] .inventory-row:hover .inventory-stock {
+    transform: scale(1.12);
+    transition-delay: 0ms !important;
+  }
+
+  .tools-card-payment[data-revealed="true"]:hover .payment-notification {
+    transform: translateY(-5px) rotate(-1deg) scale(1.025);
+    transition-delay: 0ms;
+  }
+
+  .tools-card-payment[data-revealed="true"]:hover .payment-plastic {
+    transform: translateY(-4px) rotate(-4deg) scale(1.035);
+    transition-delay: 0ms, 0ms;
+  }
+
+  .tools-card-payment[data-revealed="true"]:hover .payment-confirmation {
+    transform: rotate(8deg) scale(1.14);
+    transition-delay: 0ms, 0ms;
+  }
+
+  .tools-card-payment[data-revealed="true"]:hover .payment-feature {
+    transform: translateY(-7px) scale(1.04);
+    transition-delay: 0ms !important;
+  }
+
+  .tools-card-payment[data-revealed="true"]:hover .payment-feature:nth-child(even) {
+    transform: translateY(-11px) scale(1.055);
+  }
+}
+
+@media (max-width: 639px) {
+  .reveal-delay-2,
+  .reveal-delay-3,
+  .reveal-delay-4,
+  .reveal-delay-5 {
+    --reveal-delay: 60ms;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-progress-fill {
     transform: scaleX(1);
@@ -76,5 +385,51 @@ html {
   .hero-slide-enter,
   .hero-slide-content {
     animation: none;
+  }
+
+  .reveal-scope [data-reveal] {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transition: none;
+  }
+
+  .reveal-scope [data-reveal="aside"] {
+    transform: translateY(-50%);
+  }
+
+  .tools-card .tools-image {
+    filter: none;
+    transform: none;
+    transition: none;
+  }
+
+  .tools-card-sales .sales-header,
+  .tools-card-sales .sales-total,
+  .tools-card-sales .sales-stat,
+  .tools-card-inventory .inventory-header,
+  .tools-card-inventory .inventory-row,
+  .tools-card-inventory .inventory-thumb,
+  .tools-card-inventory .inventory-stock,
+  .tools-card-inventory .inventory-back,
+  .tools-card-inventory .inventory-side,
+  .tools-card-inventory .inventory-panel,
+  .tools-card-payment .payment-notification,
+  .tools-card-payment .payment-feature,
+  .tools-card-payment .payment-confirmation {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .tools-card-sales .sales-bar-fill {
+    transform: scaleY(1);
+    transition: none;
+  }
+
+  .tools-card-payment .payment-plastic {
+    opacity: 1;
+    transform: rotate(-7deg);
+    transition: none;
   }
 }

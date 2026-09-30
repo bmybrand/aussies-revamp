@@ -1,17 +1,34 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { InViewReveal } from "./in-view-reveal";
 
 const productImages: Record<string, string> = {
-  Mini: "/showcase/products/mini-green.png",
-  Flex: "/showcase/products/flex-green.png",
-  "Station Duo": "/showcase/products/station-duo-green.png",
-  "Kitchen Display": "/showcase/products/kitchen-display-green.png",
-  "Station Solo": "/showcase/products/station-solo-green.png",
+  Mini: "/showcase/products/mini.png",
+  Flex: "/showcase/products/flex.png",
+  "Station Duo": "/showcase/products/station-duo.png",
+  "Kitchen Display": "/showcase/products/kitchen-display.png",
+  "Station Solo": "/showcase/products/station-solo.png",
+  Kiosk: "/showcase/products/station-solo.png",
 };
 
-const showcaseCategories = [
+type ShowcaseProduct = {
+  name: string;
+  description: string;
+  video?: string;
+};
+
+type ShowcaseCategory = {
+  label: string;
+  icon: string;
+  image: string;
+  imageAlt: string;
+  headline: string;
+  products: ShowcaseProduct[];
+};
+
+const showcaseCategories: ShowcaseCategory[] = [
   {
     label: "Food & beverage",
     icon: "food",
@@ -22,22 +39,22 @@ const showcaseCategories = [
       {
         name: "Mini",
         description: "A small, efficient system made for countertops.",
-      },
-      {
-        name: "Flex",
-        description: "Take payments and manage orders from anywhere.",
+        video: "/videos/food-beverage/mini 2.mp4",
       },
       {
         name: "Station Duo",
         description: "A complete counter setup for faster service.",
+        video: "/videos/food-beverage/Station Duo.mp4",
       },
       {
         name: "Kitchen Display",
         description: "Keep every order clear, organised, and on time.",
+        video: "/videos/food-beverage/KDC.mp4",
       },
       {
-        name: "Station Solo",
-        description: "One powerful screen for everyday operations.",
+        name: "Kiosk",
+        description: "Let guests order and pay at their own pace.",
+        video: "/videos/food-beverage/kiosk.mp4",
       },
     ],
   },
@@ -51,18 +68,17 @@ const showcaseCategories = [
       {
         name: "Mini",
         description: "Compact checkout power for smaller counters.",
-      },
-      {
-        name: "Flex",
-        description: "Serve customers and take payments on the floor.",
+        video: "/videos/retail/mini.mp4",
       },
       {
         name: "Station Duo",
         description: "A customer-facing checkout built for busy stores.",
+        video: "/videos/retail/Duo.mp4",
       },
       {
         name: "Station Solo",
         description: "A simple, reliable home for every transaction.",
+        video: "/videos/retail/header (2).mp4",
       },
     ],
   },
@@ -76,14 +92,17 @@ const showcaseCategories = [
       {
         name: "Mini",
         description: "A polished payment setup for reception desks.",
+        video: "/videos/services/header.mp4",
       },
       {
         name: "Flex",
         description: "Take secure payments wherever the work happens.",
+        video: "/videos/services/Flex.mp4",
       },
       {
-        name: "Station Solo",
-        description: "Run the day from one streamlined system.",
+        name: "Station Duo",
+        description: "Keep checkout and customer confirmation in sync.",
+        video: "/videos/services/Station Duo.mp4",
       },
     ],
   },
@@ -113,22 +132,107 @@ function CategoryIcon({ type }: { type: string }) {
   );
 }
 
+function SmoothLoopVideo({ src }: { src: string }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+
+    if (!video) {
+      return;
+    }
+
+    const playbackVideo: HTMLVideoElement = video;
+
+    let animationFrame = 0;
+    const holdDuration = 0.3;
+    const easingWindow = 0.65;
+    const minimumSpeed = 0.35;
+
+    function smoothStep(value: number) {
+      const clamped = Math.min(1, Math.max(0, value));
+      return clamped * clamped * (3 - 2 * clamped);
+    }
+
+    function updatePlaybackSpeed() {
+      const duration = playbackVideo.duration;
+      const time = playbackVideo.currentTime;
+
+      if (Number.isFinite(duration) && duration > 0) {
+        const reverseStart = duration / 2 + holdDuration;
+        let speed = 1;
+
+        if (time >= holdDuration && time < holdDuration + easingWindow) {
+          const progress = smoothStep((time - holdDuration) / easingWindow);
+          speed = minimumSpeed + (1 - minimumSpeed) * progress;
+        } else if (time >= duration / 2 - easingWindow && time < duration / 2) {
+          const progress = smoothStep((time - (duration / 2 - easingWindow)) / easingWindow);
+          speed = 1 - (1 - minimumSpeed) * progress;
+        } else if (time >= reverseStart && time < reverseStart + easingWindow) {
+          const progress = smoothStep((time - reverseStart) / easingWindow);
+          speed = minimumSpeed + (1 - minimumSpeed) * progress;
+        } else if (time >= duration - easingWindow) {
+          const progress = smoothStep((time - (duration - easingWindow)) / easingWindow);
+          speed = 1 - (1 - minimumSpeed) * progress;
+        }
+
+        if (Math.abs(playbackVideo.playbackRate - speed) > 0.015) {
+          playbackVideo.playbackRate = speed;
+        }
+      }
+
+      animationFrame = window.requestAnimationFrame(updatePlaybackSpeed);
+    }
+
+    animationFrame = window.requestAnimationFrame(updatePlaybackSpeed);
+
+    return () => window.cancelAnimationFrame(animationFrame);
+  }, [src]);
+
+  return (
+    <video
+      ref={videoRef}
+      aria-hidden="true"
+      autoPlay
+      muted
+      loop
+      playsInline
+      preload="metadata"
+      className="size-full object-cover"
+    >
+      <source src={src} type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  );
+}
+
 export function BusinessShowcase() {
   const [activeCategoryIndex, setActiveCategoryIndex] = useState(0);
-  const [activeProductIndex, setActiveProductIndex] = useState(0);
+  const [activeProductIndexes, setActiveProductIndexes] = useState(() =>
+    showcaseCategories.map(() => 0),
+  );
   const activeCategory = showcaseCategories[activeCategoryIndex];
+  const activeProductIndex = activeProductIndexes[activeCategoryIndex];
   const activeProduct = activeCategory.products[activeProductIndex];
 
   function selectCategory(index: number) {
     setActiveCategoryIndex(index);
-    setActiveProductIndex(0);
+  }
+
+  function selectProduct(index: number) {
+    setActiveProductIndexes((current) =>
+      current.map((productIndex, categoryIndex) =>
+        categoryIndex === activeCategoryIndex ? index : productIndex,
+      ),
+    );
   }
 
   return (
-    <section id="industries" aria-labelledby="business-showcase-title" className="flex h-svh min-h-[640px] flex-col bg-zinc-950 text-white">
-      <header className="shrink-0 bg-[#008F74] text-white">
+    <InViewReveal className="bg-zinc-950">
+      <section id="industries" aria-labelledby="business-showcase-title" className="flex h-svh min-h-[640px] flex-col bg-zinc-950 text-white">
+      <header className="sticky top-[var(--sticky-nav-offset)] z-40 shrink-0 bg-[#008F74]/95 text-white shadow-[0_10px_28px_rgba(0,45,37,0.22)] backdrop-blur-md transition-[top] duration-[420ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)]">
         <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-3 px-6 py-3 sm:px-10 lg:h-[60px] lg:flex-row lg:items-center lg:justify-between lg:px-5 lg:py-0">
-          <nav aria-label="Business types" className="flex gap-3 overflow-x-auto">
+          <nav data-reveal="left" aria-label="Business types" className="flex gap-3 overflow-x-auto">
             {showcaseCategories.map((category, index) => (
               <button
                 key={category.label}
@@ -147,30 +251,38 @@ export function BusinessShowcase() {
             ))}
           </nav>
 
-          <h2 id="business-showcase-title" className="text-xl font-semibold tracking-[-0.02em] lg:text-right lg:text-[22px]">
+          <h2 data-reveal="right" id="business-showcase-title" className="reveal-delay-1 text-xl font-semibold tracking-[-0.02em] lg:text-right lg:text-[22px]">
             One POS. Every Kind Of Business.
           </h2>
         </div>
       </header>
 
       <div className="relative isolate min-h-0 flex-1 overflow-hidden">
-        <Image
-          key={activeCategory.image}
-          src={activeCategory.image}
-          alt={activeCategory.imageAlt}
-          fill
-          sizes="100vw"
-          className="hero-slide-enter -z-20 object-cover"
-        />
+        <div
+          key={`${activeCategory.label}-${activeProduct.name}`}
+          className="hero-slide-enter absolute inset-0 -z-20"
+        >
+          {activeProduct.video ? (
+            <SmoothLoopVideo src={activeProduct.video} />
+          ) : (
+            <Image
+              src={activeCategory.image}
+              alt={activeCategory.imageAlt}
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+          )}
+        </div>
         <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(0,0,0,0.62)_0%,rgba(0,0,0,0.1)_58%,rgba(0,0,0,0.35)_100%)]" />
         <div aria-hidden="true" className="absolute inset-x-0 bottom-0 -z-10 h-1/2 bg-[linear-gradient(to_bottom,transparent,rgba(0,0,0,0.64))]" />
 
         <div className="relative mx-auto flex h-full w-full max-w-[1440px] flex-col justify-between px-6 py-10 sm:px-10 lg:px-5 lg:py-12">
-          <h3 key={activeCategory.headline} className="hero-slide-content max-w-[720px] text-[clamp(2rem,3vw,3.25rem)] font-semibold leading-[1.18] tracking-[-0.04em] text-balance">
+          <h3 data-reveal="left" key={activeCategory.headline} className="hero-slide-content reveal-delay-2 max-w-[720px] text-[clamp(2rem,3vw,3.25rem)] font-semibold leading-[1.18] tracking-[-0.04em] text-balance">
             {activeCategory.headline}
           </h3>
 
-          <div className="max-w-xl pb-2 lg:pb-0">
+          <div data-reveal="left" className="reveal-delay-3 max-w-xl pb-2 lg:pb-0">
             <div key={`${activeCategory.label}-${activeProduct.name}`} className="hero-slide-content">
               <p className="text-2xl font-semibold uppercase sm:text-3xl">
                 {activeProduct.name}
@@ -189,7 +301,7 @@ export function BusinessShowcase() {
                   key={product.name}
                   product={product}
                   active={index === activeProductIndex}
-                  onClick={() => setActiveProductIndex(index)}
+                  onClick={() => selectProduct(index)}
                 />
               ))}
             </div>
@@ -198,21 +310,23 @@ export function BusinessShowcase() {
         </div>
 
         <aside
+          data-reveal="aside"
           key={`desktop-${activeCategory.label}`}
           aria-label={`${activeCategory.label} products`}
-          className="hero-slide-content absolute right-[3vw] top-1/2 hidden -translate-y-1/2 flex-col gap-2.5 lg:flex"
+          className="hero-slide-content reveal-delay-4 absolute right-[3vw] top-1/2 hidden -translate-y-1/2 flex-col gap-2.5 lg:flex"
         >
           {activeCategory.products.map((product, index) => (
             <ProductCard
               key={product.name}
               product={product}
               active={index === activeProductIndex}
-              onClick={() => setActiveProductIndex(index)}
+              onClick={() => selectProduct(index)}
             />
           ))}
         </aside>
       </div>
-    </section>
+      </section>
+    </InViewReveal>
   );
 }
 
