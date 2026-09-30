@@ -140,7 +140,7 @@ export function BusinessShowcase() {
 
   return (
     <section id="industries" aria-labelledby="business-showcase-title" className="flex h-svh min-h-[640px] flex-col bg-zinc-950 text-white">
-      <header className="shrink-0 bg-[#FCFF6A] text-zinc-950">
+      <header className="shrink-0 bg-[#008F74] text-white">
         <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-3 px-6 py-3 sm:px-10 lg:h-[60px] lg:flex-row lg:items-center lg:justify-between lg:px-5 lg:py-0">
           <nav aria-label="Business types" className="flex gap-3 overflow-x-auto">
             {showcaseCategories.map((category, index) => (
@@ -151,7 +151,7 @@ export function BusinessShowcase() {
                 aria-pressed={index === activeCategoryIndex}
                 className={`inline-flex h-11 shrink-0 items-center justify-center gap-2.5 rounded-lg border px-5 text-xs font-medium transition-colors ${
                   index === activeCategoryIndex
-                    ? "border-zinc-950 bg-transparent text-zinc-950 ring-1 ring-inset ring-zinc-950"
+                    ? "border-white bg-transparent text-white ring-1 ring-inset ring-white"
                     : "border-black/10 bg-white/90 text-zinc-800 hover:bg-white"
                 }`}
               >
@@ -240,13 +240,13 @@ function ProductCard({ product, active, onClick }: ProductCardProps) {
       aria-label={`View ${product.name}`}
       className={`relative flex w-[clamp(96px,11vh,120px)] shrink-0 flex-col overflow-hidden rounded-lg border-2 text-left transition-[height,border-color,transform] duration-500 ease-out hover:-translate-y-0.5 ${
         active
-          ? "h-[calc(clamp(96px,11vh,120px)+28px)] border-[#FCFF6A] bg-[#FCFF6A]"
+          ? "h-[calc(clamp(96px,11vh,120px)+28px)] border-[#008F74] bg-[#008F74]"
           : "h-[clamp(96px,11vh,120px)] border-transparent"
       }`}
     >
       <span
         aria-hidden={!active}
-        className={`flex shrink-0 items-center justify-center overflow-hidden bg-[#FCFF6A] px-1 text-center text-[10px] font-medium whitespace-nowrap text-zinc-950 transition-[height,opacity] duration-500 ease-out sm:text-[11px] ${
+        className={`flex shrink-0 items-center justify-center overflow-hidden bg-[#008F74] px-1 text-center text-[10px] font-medium whitespace-nowrap text-white transition-[height,opacity] duration-500 ease-out sm:text-[11px] ${
           active ? "h-7 opacity-100" : "h-0 opacity-0"
         }`}
       >

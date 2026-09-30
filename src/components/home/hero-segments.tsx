@@ -16,12 +16,12 @@ export function HeroProgress({ activeIndex }: HeroProgressProps) {
       {heroSegments.map((segment, index) => (
         <span key={segment} className="h-0.5 overflow-hidden bg-white/20">
           {index < activeIndex && (
-            <span className="block size-full bg-[#FCFF6A]" />
+            <span className="block size-full bg-[#008F74]" />
           )}
           {index === activeIndex && (
             <span
               key={activeIndex}
-              className="hero-progress-fill block size-full origin-left bg-[#FCFF6A]"
+              className="hero-progress-fill block size-full origin-left bg-[#008F74]"
             />
           )}
         </span>
@@ -45,7 +45,7 @@ export function HeroSegmentNavigation({
           type="button"
           aria-current={index === activeIndex ? "true" : undefined}
           onClick={() => onSelect(index)}
-          className={`h-full cursor-pointer px-3 text-center text-sm font-normal transition-colors hover:text-[#FCFF6A] sm:text-lg ${
+          className={`h-full cursor-pointer px-3 text-center text-sm font-normal transition-colors hover:text-[#008F74] sm:text-lg ${
             index === activeIndex ? "text-white" : "text-white/90"
           }`}
         >

@@ -11,7 +11,7 @@ const navItems = [
 ];
 
 const navigationLinkClasses =
-  "relative py-2 text-base font-normal transition-colors hover:text-[#FCFF6A] after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-[#FCFF6A] after:transition-transform hover:after:scale-x-100";
+  "relative py-2 text-base font-normal transition-colors hover:text-[#008F74] after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-[#008F74] after:transition-transform hover:after:scale-x-100";
 
 export function Navbar() {
   return (
@@ -26,7 +26,7 @@ export function Navbar() {
               href={item.href}
               className={`${navigationLinkClasses} ${
                 index === 0
-                  ? "text-[#FCFF6A] after:scale-x-100"
+                  ? "text-[#008F74] after:scale-x-100"
                   : "text-white/90"
               }`}
             >
@@ -37,7 +37,7 @@ export function Navbar() {
 
         <Link
           href="#quote"
-          className="hidden h-[46px] min-w-[230px] items-center justify-center rounded-[9px] bg-white px-6 text-[15px] font-medium text-zinc-950 shadow-sm transition-colors hover:bg-[#FCFF6A] md:inline-flex"
+          className="hidden h-[46px] min-w-[230px] items-center justify-center rounded-[9px] bg-white px-6 text-[15px] font-medium text-zinc-950 shadow-sm transition-colors hover:bg-[#008F74] hover:text-white md:inline-flex"
         >
           Get A Free POS Quote
         </Link>
@@ -52,11 +52,11 @@ export function Navbar() {
 
           <nav className="absolute right-0 top-14 flex w-64 flex-col rounded-2xl border border-white/10 bg-zinc-950/95 p-3 shadow-2xl backdrop-blur-xl">
             {navItems.map((item) => (
-              <Link key={item.label} href={item.href} className="rounded-xl px-4 py-3 text-lg font-normal text-white/90 hover:bg-white/10 hover:text-[#FCFF6A]">
+              <Link key={item.label} href={item.href} className="rounded-xl px-4 py-3 text-lg font-normal text-white/90 hover:bg-white/10 hover:text-[#008F74]">
                 {item.label}
               </Link>
             ))}
-            <Link href="#quote" className="mt-2 rounded-xl bg-[#FCFF6A] px-4 py-3 text-center text-[17px] font-medium text-zinc-950 hover:bg-[#F1F45F]">
+            <Link href="#quote" className="mt-2 rounded-xl bg-[#008F74] px-4 py-3 text-center text-[17px] font-medium text-white hover:bg-[#005343]">
               Get A Free POS Quote
             </Link>
           </nav>

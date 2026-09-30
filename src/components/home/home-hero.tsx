@@ -123,12 +123,12 @@ export function HomeHero() {
                 className={`${manrope.className} mb-5 flex items-center gap-3 text-xs font-medium uppercase tracking-[0.08em] text-white/95 sm:text-base`}
               >
                 <Image
-                  src="/The Aussies - FF-09.png"
+                  src="/Aussie - FF 1 (3).png"
                   alt=""
-                  width={3000}
-                  height={1500}
-                  className="h-5 w-10 shrink-0 object-contain"
-                  sizes="40px"
+                  width={128}
+                  height={88}
+                  className="h-5 w-auto shrink-0 object-contain"
+                  sizes="29px"
                 />
                 {activeSlide.eyebrow}
               </p>
@@ -147,7 +147,7 @@ export function HomeHero() {
             >
               <Link
                 href={activeSlide.primaryCta.href}
-                className="inline-flex min-h-[53px] items-center justify-center rounded-lg bg-[#FCFF6A] px-6 text-base font-medium text-zinc-950 shadow-lg shadow-black/10 transition-colors hover:bg-[#F1F45F]"
+                className="inline-flex min-h-[53px] items-center justify-center rounded-lg bg-[#008F74] px-6 text-base font-medium text-white shadow-lg shadow-black/10 transition-colors hover:bg-[#005343]"
               >
                 {activeSlide.primaryCta.label}
               </Link>
