@@ -4,13 +4,11 @@ import Image from "next/image";
 import { useState } from "react";
 
 const productImages: Record<string, string> = {
-  Mini: "/showcase/products/mini.png",
-  Flex: "/showcase/products/flex.png",
-  "Station Duo": "/showcase/products/station-duo.png",
-  "Kitchen Display": "/showcase/products/kitchen-display.png",
-  "Inventory Hub": "/showcase/products/kitchen-display.png",
-  "Booking Hub": "/showcase/products/kitchen-display.png",
-  "Station Solo": "/showcase/products/station-solo.png",
+  Mini: "/showcase/products/mini-green.png",
+  Flex: "/showcase/products/flex-green.png",
+  "Station Duo": "/showcase/products/station-duo-green.png",
+  "Kitchen Display": "/showcase/products/kitchen-display-green.png",
+  "Station Solo": "/showcase/products/station-solo-green.png",
 };
 
 const showcaseCategories = [
@@ -63,10 +61,6 @@ const showcaseCategories = [
         description: "A customer-facing checkout built for busy stores.",
       },
       {
-        name: "Inventory Hub",
-        description: "Keep products and stock easier to manage.",
-      },
-      {
         name: "Station Solo",
         description: "A simple, reliable home for every transaction.",
       },
@@ -86,14 +80,6 @@ const showcaseCategories = [
       {
         name: "Flex",
         description: "Take secure payments wherever the work happens.",
-      },
-      {
-        name: "Station Duo",
-        description: "Give clients a clear, confident checkout.",
-      },
-      {
-        name: "Booking Hub",
-        description: "Connect appointments, staff, and payments.",
       },
       {
         name: "Station Solo",
@@ -194,7 +180,10 @@ export function BusinessShowcase() {
               </p>
             </div>
 
-            <div className="mt-8 flex gap-3 overflow-x-auto pb-2 lg:hidden">
+            <div
+              key={`mobile-${activeCategory.label}`}
+              className="hero-slide-content mt-8 flex gap-3 overflow-x-auto pb-2 lg:hidden"
+            >
               {activeCategory.products.map((product, index) => (
                 <ProductCard
                   key={product.name}
@@ -208,7 +197,11 @@ export function BusinessShowcase() {
 
         </div>
 
-        <aside aria-label={`${activeCategory.label} products`} className="absolute right-[3vw] top-1/2 hidden -translate-y-1/2 flex-col gap-2.5 lg:flex">
+        <aside
+          key={`desktop-${activeCategory.label}`}
+          aria-label={`${activeCategory.label} products`}
+          className="hero-slide-content absolute right-[3vw] top-1/2 hidden -translate-y-1/2 flex-col gap-2.5 lg:flex"
+        >
           {activeCategory.products.map((product, index) => (
             <ProductCard
               key={product.name}
