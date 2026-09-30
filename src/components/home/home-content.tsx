@@ -11,6 +11,10 @@ export function HomeContent() {
   const [heroCategoryIndex, setHeroCategoryIndex] = useState(0);
   const [showcaseCategoryIndex, setShowcaseCategoryIndex] = useState(0);
   const [heroTimerKey, setHeroTimerKey] = useState(0);
+  const [isShowcaseFocused, setIsShowcaseFocused] = useState(false);
+  const visibleShowcaseCategoryIndex = isShowcaseFocused
+    ? showcaseCategoryIndex
+    : heroCategoryIndex;
 
   const selectHeroCategory = useCallback((index: number) => {
     setHeroCategoryIndex(index);
@@ -23,9 +27,16 @@ export function HomeContent() {
     setHeroTimerKey((current) => current + 1);
   }, []);
 
-  const syncShowcaseToHero = useCallback((index: number) => {
-    setShowcaseCategoryIndex(index);
-  }, []);
+  const handleShowcaseFocus = useCallback(
+    (focused: boolean) => {
+      setIsShowcaseFocused(focused);
+
+      if (focused) {
+        setShowcaseCategoryIndex(heroCategoryIndex);
+      }
+    },
+    [heroCategoryIndex],
+  );
 
   return (
     <>
@@ -33,12 +44,13 @@ export function HomeContent() {
         activeIndex={heroCategoryIndex}
         timerKey={heroTimerKey}
         onSelect={selectHeroCategory}
-        onLeaveView={syncShowcaseToHero}
+        timerPaused={isShowcaseFocused}
       />
       <BusinessTools />
       <BusinessShowcase
-        activeCategoryIndex={showcaseCategoryIndex}
+        activeCategoryIndex={visibleShowcaseCategoryIndex}
         onCategorySelect={selectShowcaseCategory}
+        onFocusChange={handleShowcaseFocus}
       />
       <EquipmentOptions />
       <CustomerTestimonial />

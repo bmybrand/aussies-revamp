@@ -207,18 +207,37 @@ function SmoothLoopVideo({ src }: { src: string }) {
 type BusinessShowcaseProps = {
   activeCategoryIndex: number;
   onCategorySelect: (index: number) => void;
+  onFocusChange: (focused: boolean) => void;
 };
 
 export function BusinessShowcase({
   activeCategoryIndex,
   onCategorySelect,
+  onFocusChange,
 }: BusinessShowcaseProps) {
+  const sectionRef = useRef<HTMLElement>(null);
   const [activeProductIndexes, setActiveProductIndexes] = useState(() =>
     showcaseCategories.map(() => 0),
   );
   const activeCategory = showcaseCategories[activeCategoryIndex];
   const activeProductIndex = activeProductIndexes[activeCategoryIndex];
   const activeProduct = activeCategory.products[activeProductIndex];
+
+  useEffect(() => {
+    const section = sectionRef.current;
+
+    if (!section) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => onFocusChange(entry.intersectionRatio >= 0.2),
+      { threshold: 0.2 },
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, [onFocusChange]);
 
   function selectCategory(index: number) {
     onCategorySelect(index);
@@ -261,7 +280,7 @@ export function BusinessShowcase({
         </div>
       </header>
 
-      <section id="industries" aria-labelledby="business-showcase-title" className="flex h-svh min-h-[640px] flex-col bg-zinc-950 text-white">
+      <section ref={sectionRef} id="industries" aria-labelledby="business-showcase-title" className="flex h-svh min-h-[640px] flex-col bg-zinc-950 text-white">
       <div className="relative isolate min-h-0 flex-1 overflow-hidden">
         <div
           key={`${activeCategory.label}-${activeProduct.name}`}

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { EyebrowLabel } from "./eyebrow-label";
 import { HeroProgress, HeroSegmentNavigation } from "./hero-segments";
 import { Navbar } from "./navbar";
@@ -52,43 +52,18 @@ type HomeHeroProps = {
   activeIndex: number;
   timerKey: number;
   onSelect: (index: number) => void;
-  onLeaveView: (index: number) => void;
+  timerPaused: boolean;
 };
 
 export function HomeHero({
   activeIndex,
   timerKey,
   onSelect,
-  onLeaveView,
+  timerPaused,
 }: HomeHeroProps) {
-  const heroRef = useRef<HTMLElement>(null);
   const remainingTimeRef = useRef(slideDuration);
   const timerCycleRef = useRef(`${activeIndex}-${timerKey}`);
-  const [isHeroInView, setIsHeroInView] = useState(true);
   const activeSlide = heroSlides[activeIndex];
-
-  useEffect(() => {
-    const hero = heroRef.current;
-
-    if (!hero) {
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        const inView = entry.intersectionRatio >= 0.18;
-        setIsHeroInView(inView);
-
-        if (!inView) {
-          onLeaveView(activeIndex);
-        }
-      },
-      { threshold: 0.18 },
-    );
-
-    observer.observe(hero);
-    return () => observer.disconnect();
-  }, [activeIndex, onLeaveView]);
 
   useEffect(() => {
     const timerCycle = `${activeIndex}-${timerKey}`;
@@ -99,7 +74,7 @@ export function HomeHero({
     }
 
     if (
-      !isHeroInView ||
+      timerPaused ||
       window.matchMedia("(prefers-reduced-motion: reduce)").matches
     ) {
       return;
@@ -117,14 +92,13 @@ export function HomeHero({
         remainingTimeRef.current - (performance.now() - startedAt),
       );
     };
-  }, [activeIndex, isHeroInView, onSelect, timerKey]);
+  }, [activeIndex, onSelect, timerKey, timerPaused]);
 
   return (
     <>
       <Navbar />
 
       <section
-        ref={heroRef}
         id="home"
         aria-labelledby="home-hero-heading"
         className="relative isolate bg-[#101010] text-white"
@@ -198,7 +172,7 @@ export function HomeHero({
           <HeroProgress
             key={`${activeIndex}-${timerKey}`}
             activeIndex={activeIndex}
-            paused={!isHeroInView}
+            paused={timerPaused}
           />
         </div>
         <div className="absolute inset-x-0 top-[100svh] z-10">
