@@ -1,13 +1,9 @@
-import { HomeHero } from "@/components/home/home-hero";
-import { BusinessTools } from "@/components/home/business-tools";
-import { BusinessShowcase } from "@/components/home/business-showcase";
+import { HomeContent } from "@/components/home/home-content";
 
 export default function HomePage() {
   return (
     <main>
-      <HomeHero />
-      <BusinessTools />
-      <BusinessShowcase />
+      <HomeContent />
     </main>
   );
 }

@@ -17,6 +17,8 @@ type ShowcaseProduct = {
   name: string;
   description: string;
   video?: string;
+  image?: string;
+  imageAlt?: string;
 };
 
 type ShowcaseCategory = {
@@ -40,6 +42,12 @@ const showcaseCategories: ShowcaseCategory[] = [
         name: "Mini",
         description: "A small, efficient system made for countertops.",
         video: "/videos/food-beverage/mini 2.mp4",
+      },
+      {
+        name: "Flex",
+        description: "Take orders and payments wherever service happens.",
+        image: "/showcase/restaurant-pos.png",
+        imageAlt: "Flexible point-of-sale system in a modern restaurant",
       },
       {
         name: "Station Duo",
@@ -75,11 +83,6 @@ const showcaseCategories: ShowcaseCategory[] = [
         description: "A customer-facing checkout built for busy stores.",
         video: "/videos/retail/Duo.mp4",
       },
-      {
-        name: "Station Solo",
-        description: "A simple, reliable home for every transaction.",
-        video: "/videos/retail/header (2).mp4",
-      },
     ],
   },
   {
@@ -89,11 +92,6 @@ const showcaseCategories: ShowcaseCategory[] = [
     imageAlt: "Point-of-sale system at a premium service reception",
     headline: "A Service POS That Makes Every Appointment Simpler",
     products: [
-      {
-        name: "Mini",
-        description: "A polished payment setup for reception desks.",
-        video: "/videos/services/header.mp4",
-      },
       {
         name: "Flex",
         description: "Take secure payments wherever the work happens.",
@@ -206,8 +204,15 @@ function SmoothLoopVideo({ src }: { src: string }) {
   );
 }
 
-export function BusinessShowcase() {
-  const [activeCategoryIndex, setActiveCategoryIndex] = useState(0);
+type BusinessShowcaseProps = {
+  activeCategoryIndex: number;
+  onCategorySelect: (index: number) => void;
+};
+
+export function BusinessShowcase({
+  activeCategoryIndex,
+  onCategorySelect,
+}: BusinessShowcaseProps) {
   const [activeProductIndexes, setActiveProductIndexes] = useState(() =>
     showcaseCategories.map(() => 0),
   );
@@ -216,7 +221,7 @@ export function BusinessShowcase() {
   const activeProduct = activeCategory.products[activeProductIndex];
 
   function selectCategory(index: number) {
-    setActiveCategoryIndex(index);
+    onCategorySelect(index);
   }
 
   function selectProduct(index: number) {
@@ -228,8 +233,7 @@ export function BusinessShowcase() {
   }
 
   return (
-    <InViewReveal className="bg-zinc-950">
-      <section id="industries" aria-labelledby="business-showcase-title" className="flex h-svh min-h-[640px] flex-col bg-zinc-950 text-white">
+    <InViewReveal className="contents">
       <header className="sticky top-[var(--sticky-nav-offset)] z-40 shrink-0 bg-[#008F74]/95 text-white shadow-[0_10px_28px_rgba(0,45,37,0.22)] backdrop-blur-md transition-[top] duration-[420ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)]">
         <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-3 px-6 py-3 sm:px-10 lg:h-[60px] lg:flex-row lg:items-center lg:justify-between lg:px-5 lg:py-0">
           <nav data-reveal="left" aria-label="Business types" className="flex gap-3 overflow-x-auto">
@@ -257,6 +261,7 @@ export function BusinessShowcase() {
         </div>
       </header>
 
+      <section id="industries" aria-labelledby="business-showcase-title" className="flex h-svh min-h-[640px] flex-col bg-zinc-950 text-white">
       <div className="relative isolate min-h-0 flex-1 overflow-hidden">
         <div
           key={`${activeCategory.label}-${activeProduct.name}`}
@@ -266,8 +271,8 @@ export function BusinessShowcase() {
             <SmoothLoopVideo src={activeProduct.video} />
           ) : (
             <Image
-              src={activeCategory.image}
-              alt={activeCategory.imageAlt}
+              src={activeProduct.image ?? activeCategory.image}
+              alt={activeProduct.imageAlt ?? activeCategory.imageAlt}
               fill
               sizes="100vw"
               className="object-cover"

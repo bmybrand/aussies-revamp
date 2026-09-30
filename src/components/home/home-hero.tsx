@@ -1,8 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { EyebrowLabel } from "./eyebrow-label";
 import { HeroProgress, HeroSegmentNavigation } from "./hero-segments";
 import { Navbar } from "./navbar";
@@ -30,9 +29,8 @@ const heroSlides = [
     eyebrow: "POS systems built for modern retail",
     title: "Powerful POS Solutions Built To Keep Australian Retail Moving",
     media: {
-      type: "image" as const,
-      src: "/hero/retail-pos.png",
-      alt: "Modern point-of-sale system in a premium retail store",
+      type: "video" as const,
+      src: "/videos/retail/header (2).mp4",
     },
     primaryCta: { label: "Explore Retail POS", href: "#retail" },
     secondaryCta: { label: "Get My POS Quote", href: "#contact" },
@@ -42,36 +40,91 @@ const heroSlides = [
     eyebrow: "Flexible POS for service businesses",
     title: "Simple Payments And Smarter POS For Every Service Business",
     media: {
-      type: "image" as const,
-      src: "/hero/services-pos.png",
-      alt: "Modern point-of-sale system at a premium service reception",
+      type: "video" as const,
+      src: "/videos/services/header.mp4",
     },
     primaryCta: { label: "Explore Service POS", href: "#services" },
     secondaryCta: { label: "Get My POS Quote", href: "#contact" },
   },
 ];
 
-export function HomeHero() {
-  const [activeIndex, setActiveIndex] = useState(0);
+type HomeHeroProps = {
+  activeIndex: number;
+  timerKey: number;
+  onSelect: (index: number) => void;
+  onLeaveView: (index: number) => void;
+};
+
+export function HomeHero({
+  activeIndex,
+  timerKey,
+  onSelect,
+  onLeaveView,
+}: HomeHeroProps) {
+  const heroRef = useRef<HTMLElement>(null);
+  const remainingTimeRef = useRef(slideDuration);
+  const timerCycleRef = useRef(`${activeIndex}-${timerKey}`);
+  const [isHeroInView, setIsHeroInView] = useState(true);
   const activeSlide = heroSlides[activeIndex];
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const hero = heroRef.current;
+
+    if (!hero) {
       return;
     }
 
-    const timeout = window.setTimeout(() => {
-      setActiveIndex((current) => (current + 1) % heroSlides.length);
-    }, slideDuration);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const inView = entry.intersectionRatio >= 0.18;
+        setIsHeroInView(inView);
 
-    return () => window.clearTimeout(timeout);
-  }, [activeIndex]);
+        if (!inView) {
+          onLeaveView(activeIndex);
+        }
+      },
+      { threshold: 0.18 },
+    );
+
+    observer.observe(hero);
+    return () => observer.disconnect();
+  }, [activeIndex, onLeaveView]);
+
+  useEffect(() => {
+    const timerCycle = `${activeIndex}-${timerKey}`;
+
+    if (timerCycleRef.current !== timerCycle) {
+      timerCycleRef.current = timerCycle;
+      remainingTimeRef.current = slideDuration;
+    }
+
+    if (
+      !isHeroInView ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      return;
+    }
+
+    const startedAt = performance.now();
+    const timeout = window.setTimeout(() => {
+      onSelect((activeIndex + 1) % heroSlides.length);
+    }, remainingTimeRef.current);
+
+    return () => {
+      window.clearTimeout(timeout);
+      remainingTimeRef.current = Math.max(
+        0,
+        remainingTimeRef.current - (performance.now() - startedAt),
+      );
+    };
+  }, [activeIndex, isHeroInView, onSelect, timerKey]);
 
   return (
     <>
       <Navbar />
 
       <section
+        ref={heroRef}
         id="home"
         aria-labelledby="home-hero-heading"
         className="relative isolate bg-[#101010] text-white"
@@ -80,28 +133,18 @@ export function HomeHero() {
         <div aria-hidden="true" className="absolute inset-0 -z-30 bg-zinc-600" />
 
         <div key={activeSlide.category} className="hero-slide-enter absolute inset-0 -z-20">
-          {activeSlide.media.type === "video" ? (
-            <video
-              aria-hidden="true"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              tabIndex={-1}
-              className="size-full object-cover"
-            >
-              <source src={activeSlide.media.src} type="video/mp4" />
-            </video>
-          ) : (
-            <Image
-              src={activeSlide.media.src}
-              alt={activeSlide.media.alt}
-              fill
-              sizes="100vw"
-              className="object-cover"
-            />
-          )}
+          <video
+            aria-hidden="true"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            tabIndex={-1}
+            className="size-full object-cover"
+          >
+            <source src={activeSlide.media.src} type="video/mp4" />
+          </video>
         </div>
 
         <div
@@ -152,12 +195,16 @@ export function HomeHero() {
         </div>
 
         <div className="absolute inset-x-0 top-[calc(100svh-2px)] z-10">
-          <HeroProgress activeIndex={activeIndex} />
+          <HeroProgress
+            key={`${activeIndex}-${timerKey}`}
+            activeIndex={activeIndex}
+            paused={!isHeroInView}
+          />
         </div>
         <div className="absolute inset-x-0 top-[100svh] z-10">
           <HeroSegmentNavigation
             activeIndex={activeIndex}
-            onSelect={setActiveIndex}
+            onSelect={onSelect}
           />
         </div>
         </div>

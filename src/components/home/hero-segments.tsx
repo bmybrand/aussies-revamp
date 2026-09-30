@@ -4,13 +4,14 @@ const heroSegments = ["Food & Beverage", "Retail", "Services"];
 
 type HeroProgressProps = {
   activeIndex: number;
+  paused?: boolean;
 };
 
 type HeroSegmentNavigationProps = HeroProgressProps & {
   onSelect: (index: number) => void;
 };
 
-export function HeroProgress({ activeIndex }: HeroProgressProps) {
+export function HeroProgress({ activeIndex, paused = false }: HeroProgressProps) {
   return (
     <div aria-hidden="true" className="grid grid-cols-3 gap-px">
       {heroSegments.map((segment, index) => (
@@ -22,6 +23,7 @@ export function HeroProgress({ activeIndex }: HeroProgressProps) {
             <span
               key={activeIndex}
               className="hero-progress-fill block size-full origin-left bg-[#008F74]"
+              style={{ animationPlayState: paused ? "paused" : "running" }}
             />
           )}
         </span>
