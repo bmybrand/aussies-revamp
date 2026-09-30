@@ -2,6 +2,7 @@
 
 import { useCallback, useState } from "react";
 import { BusinessShowcase } from "./business-showcase";
+import { BusinessEcosystem } from "./business-ecosystem";
 import { BusinessTools } from "./business-tools";
 import { CustomerTestimonial } from "./customer-testimonial";
 import { EquipmentOptions } from "./equipment-options";
@@ -54,6 +55,7 @@ export function HomeContent() {
       />
       <EquipmentOptions />
       <CustomerTestimonial />
+      <BusinessEcosystem />
     </>
   );
 }
