@@ -89,12 +89,12 @@ export function Navbar() {
       <div
         className={`mx-auto flex w-full items-center justify-between border px-5 shadow-2xl shadow-black/20 backdrop-blur-xl transition-[height,border-radius,background-color,border-color,padding] duration-500 ease-out sm:px-7 ${
           isScrolled
-            ? "h-20 rounded-none border-x-0 border-t-0 border-[#008F74]/30 bg-[#062A24]/95 shadow-[0_12px_35px_rgba(0,0,0,0.28)] lg:px-[3.1vw]"
+            ? "h-20 rounded-none border-x-0 border-t-0 border-zinc-200/90 bg-white/95 shadow-[0_12px_35px_rgba(0,70,58,0.12)] lg:px-[3.1vw]"
             : "h-24 rounded-3xl border-white/5 bg-white/[0.15]"
         }`}
       >
         <div className={`origin-left transition-transform duration-500 ease-out ${isScrolled ? "scale-[0.82]" : "scale-100"}`}>
-          <BrandLogo />
+          <BrandLogo isScrolled={isScrolled} />
         </div>
 
         <nav aria-label="Main navigation" className="hidden items-center gap-[30px] xl:flex xl:gap-9">
@@ -105,7 +105,9 @@ export function Navbar() {
               className={`${navigationLinkClasses} ${
                 index === 0
                   ? "text-[#008F74] after:scale-x-100"
-                  : "text-white/90"
+                  : isScrolled
+                    ? "text-zinc-700"
+                    : "text-white/90"
               }`}
             >
               {item.label}
@@ -115,24 +117,38 @@ export function Navbar() {
 
         <Link
           href="#quote"
-          className={`hidden items-center justify-center rounded-[9px] bg-white px-6 text-[15px] font-medium text-zinc-950 shadow-sm transition-[height,min-width,background-color,color] duration-500 hover:bg-[#008F74] hover:text-white md:inline-flex ${
-            isScrolled ? "h-10 min-w-[210px]" : "h-[46px] min-w-[230px]"
+          className={`hidden items-center justify-center rounded-[9px] px-6 text-[15px] font-medium shadow-sm transition-[height,min-width,background-color,color] duration-500 md:inline-flex ${
+            isScrolled
+              ? "h-10 min-w-[210px] bg-[#008F74] text-white ring-1 ring-[#008F74] hover:bg-white hover:text-zinc-950 hover:ring-zinc-200"
+              : "h-[46px] min-w-[230px] bg-white text-zinc-950 hover:bg-[#008F74] hover:text-white"
           }`}
         >
           Get A Free POS Quote
         </Link>
 
         <details className="group relative xl:hidden">
-          <summary className="flex size-10 cursor-pointer list-none items-center justify-center rounded-xl border border-white/20 text-white transition-colors hover:bg-white/10 [&::-webkit-details-marker]:hidden">
+          <summary className={`flex size-10 cursor-pointer list-none items-center justify-center rounded-xl border transition-colors [&::-webkit-details-marker]:hidden ${
+            isScrolled
+              ? "border-zinc-300 text-zinc-800 hover:bg-zinc-100"
+              : "border-white/20 text-white hover:bg-white/10"
+          }`}>
             <span className="sr-only">Open navigation menu</span>
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="size-6">
               <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
             </svg>
           </summary>
 
-          <nav className="absolute right-0 top-14 flex w-64 flex-col rounded-2xl border border-white/10 bg-zinc-950/95 p-3 shadow-2xl backdrop-blur-xl">
+          <nav className={`absolute right-0 top-14 flex w-64 flex-col rounded-2xl border p-3 shadow-2xl backdrop-blur-xl ${
+            isScrolled
+              ? "border-zinc-200 bg-white/95"
+              : "border-white/10 bg-zinc-950/95"
+          }`}>
             {navItems.map((item) => (
-              <Link key={item.label} href={item.href} className="rounded-xl px-4 py-3 text-lg font-normal text-white/90 hover:bg-white/10 hover:text-[#008F74]">
+              <Link key={item.label} href={item.href} className={`rounded-xl px-4 py-3 text-lg font-normal hover:text-[#008F74] ${
+                isScrolled
+                  ? "text-zinc-700 hover:bg-zinc-100"
+                  : "text-white/90 hover:bg-white/10"
+              }`}>
                 {item.label}
               </Link>
             ))}
