@@ -7,6 +7,7 @@ import { BusinessTools } from "./business-tools";
 import { CustomerTestimonial } from "./customer-testimonial";
 import { EquipmentOptions } from "./equipment-options";
 import { HomeHero } from "./home-hero";
+import { SupplierBenefits } from "./supplier-benefits";
 
 export function HomeContent() {
   const [heroCategoryIndex, setHeroCategoryIndex] = useState(0);
@@ -53,7 +54,9 @@ export function HomeContent() {
         onCategorySelect={selectShowcaseCategory}
         onFocusChange={handleShowcaseFocus}
       />
+      
       <EquipmentOptions />
+      <SupplierBenefits />
       <CustomerTestimonial />
       <BusinessEcosystem />
     </>
