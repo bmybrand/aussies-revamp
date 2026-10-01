@@ -11,8 +11,9 @@ export const metadata: Metadata = {
   title: "Aussie's POS Solutions",
   description: "POS systems and payment solutions for Australian businesses.",
   icons: {
-    icon: "/globe.svg",
-    shortcut: "/globe.svg",
+    icon: "/Aussie POS - favicon.png",
+    shortcut: "/Aussie POS - favicon.png",
+    apple: "/Aussie POS - favicon.png",
   },
 };
 
