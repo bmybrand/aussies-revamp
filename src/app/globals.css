@@ -347,11 +347,68 @@ html {
 .ecosystem-rings {
   --ecosystem-size: clamp(640px, 64vw, 840px);
   position: absolute;
-  bottom: calc(var(--ecosystem-size) * -0.38);
+  top: 60px;
+  bottom: auto;
   left: 50%;
   width: var(--ecosystem-size);
   height: var(--ecosystem-size);
   transform: translateX(-50%);
+}
+
+.ecosystem-mobile-cards {
+  position: absolute;
+  top: 220px;
+  left: 50%;
+  z-index: 20;
+  display: grid;
+  width: min(calc(100% - 32px), 560px);
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid rgba(0, 95, 77, 0.08);
+  border-radius: 16px;
+  background: rgba(224, 239, 235, 0.94);
+  box-shadow: 0 18px 46px rgba(0, 70, 58, 0.1);
+  transform: translateX(-50%);
+}
+
+.ecosystem-mobile-card {
+  border: 1px solid rgba(0, 95, 77, 0.08);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.97);
+  padding: 18px;
+  box-shadow: 0 8px 22px rgba(0, 70, 58, 0.06);
+}
+
+.ecosystem-mobile-card-badge {
+  display: inline-flex;
+  height: 24px;
+  min-width: 72px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #005343 0%, #00977d 100%);
+  padding: 0 12px;
+  color: white;
+  font-size: 9px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.ecosystem-mobile-card h3 {
+  margin-top: 12px;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+.ecosystem-mobile-card p {
+  margin-top: 8px;
+  color: #71717a;
+  font-size: 13px;
+  line-height: 1.55;
 }
 
 .ecosystem-accordion {
@@ -697,6 +754,10 @@ html {
 }
 
 @media (min-width: 1024px) {
+  .ecosystem-mobile-cards {
+    display: none;
+  }
+
   .ecosystem-rings {
     top: 82px;
     bottom: auto;
@@ -711,12 +772,29 @@ html {
 }
 
 @media (max-width: 1023px) {
-  #business-ecosystem {
-    min-height: 1080px;
+  .ecosystem-accordion {
+    display: none !important;
+  }
+
+  .ecosystem-rings {
+    top: 500px;
   }
 
   .ecosystem-accordion-title {
     white-space: normal;
+  }
+}
+
+@media (max-width: 639px) {
+  .ecosystem-rings {
+    top: 720px;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .ecosystem-mobile-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: min(calc(100% - 48px), 760px);
   }
 }
 

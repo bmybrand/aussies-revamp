@@ -173,9 +173,9 @@ export function BusinessEcosystem() {
       <section
         id="business-ecosystem"
         aria-labelledby="business-ecosystem-title"
-        className="relative isolate flex min-h-[720px] items-center overflow-hidden bg-[#fdfdfc] text-zinc-950 sm:min-h-svh"
+        className="relative isolate flex min-h-[max(720px,100svh)] items-center overflow-hidden bg-[#fdfdfc] text-zinc-950"
       >
-        <div className="relative h-[1080px] w-full lg:h-[720px] lg:-translate-y-[72px]">
+        <div className="relative h-[1320px] w-full sm:h-[1120px] lg:h-[720px] lg:-translate-y-[72px]">
         <div data-reveal className="relative z-10 mx-auto max-w-[1100px] px-6 pt-20 text-center sm:px-10 sm:pt-24">
           <h2 id="business-ecosystem-title" className="text-[clamp(2rem,3vw,3.15rem)] font-semibold leading-[1.1] tracking-[-0.04em] text-balance">
             Everything You Need To Run Your Business
@@ -183,6 +183,16 @@ export function BusinessEcosystem() {
           <p className="mx-auto mt-5 max-w-[760px] text-sm leading-6 text-zinc-500 sm:text-base">
             More than a payment terminal. Your POS can help manage daily operations, improve efficiency, and give you better visibility.
           </p>
+        </div>
+
+        <div className="ecosystem-mobile-cards">
+          {layers.map((layer, index) => (
+            <article key={layer.label} data-reveal="card" className={`ecosystem-mobile-card reveal-delay-${index + 1}`}>
+              <span className="ecosystem-mobile-card-badge">{layer.label}</span>
+              <h3>{layer.title}</h3>
+              <p>{layer.description}</p>
+            </article>
+          ))}
         </div>
 
         <div

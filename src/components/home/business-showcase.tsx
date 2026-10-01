@@ -109,7 +109,7 @@ const showcaseCategories: ShowcaseCategory[] = [
 function CategoryIcon({ type }: { type: string }) {
   if (type === "retail") {
     return (
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="size-[18px]">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="size-3.5 shrink-0 sm:size-[18px]">
         <path d="M4 9v10h16V9M3 9l2-5h14l2 5M8 9v3m4-3v3m4-3v3M8 19v-4h8v4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     );
@@ -117,14 +117,14 @@ function CategoryIcon({ type }: { type: string }) {
 
   if (type === "services") {
     return (
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="size-[18px]">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="size-3.5 shrink-0 sm:size-[18px]">
         <path d="M4 8h16v11H4V8Zm5 0V5h6v3m-3 4v2m-8-3c5 2 11 2 16 0" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     );
   }
 
   return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="size-[18px]">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="size-3.5 shrink-0 sm:size-[18px]">
       <path d="M7 3v8m-3-8v5c0 2 1.3 3 3 3s3-1 3-3V3m-3 8v10M16 3c2 2 3 5 3 8h-4V3m4 8v10" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
@@ -254,15 +254,15 @@ export function BusinessShowcase({
   return (
     <InViewReveal className="contents">
       <header className="sticky top-[var(--sticky-nav-offset)] z-40 shrink-0 bg-[#008F74]/95 text-white shadow-[0_10px_28px_rgba(0,45,37,0.22)] backdrop-blur-md transition-[top] duration-[420ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)]">
-        <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-3 px-6 py-3 sm:px-10 lg:h-[60px] lg:flex-row lg:items-center lg:justify-between lg:px-5 lg:py-0">
-          <nav data-reveal="left" aria-label="Business types" className="flex gap-3 overflow-x-auto">
+        <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-2 px-3 py-2 sm:px-6 md:h-[60px] md:flex-row md:items-center md:justify-between md:gap-4 md:px-5 md:py-0">
+          <nav data-reveal="left" aria-label="Business types" className="grid w-full grid-cols-3 gap-1.5 md:flex md:w-auto md:gap-3 md:overflow-x-auto">
             {showcaseCategories.map((category, index) => (
               <button
                 key={category.label}
                 type="button"
                 onClick={() => selectCategory(index)}
                 aria-pressed={index === activeCategoryIndex}
-                className={`inline-flex h-11 shrink-0 items-center justify-center gap-2.5 rounded-lg border px-5 text-xs font-medium transition-colors ${
+                className={`inline-flex h-9 min-w-0 items-center justify-center gap-1.5 rounded-lg border px-1.5 text-[10px] font-medium whitespace-nowrap transition-colors sm:h-10 sm:gap-2 sm:px-3 sm:text-xs md:h-11 md:shrink-0 md:gap-2.5 md:px-5 ${
                   index === activeCategoryIndex
                     ? "border-white bg-transparent text-white ring-1 ring-inset ring-white"
                     : "border-black/10 bg-white/90 text-zinc-800 hover:bg-white"
@@ -274,7 +274,7 @@ export function BusinessShowcase({
             ))}
           </nav>
 
-          <h2 data-reveal="right" id="business-showcase-title" className="reveal-delay-1 text-xl font-semibold tracking-[-0.02em] lg:text-right lg:text-[22px]">
+          <h2 data-reveal="right" id="business-showcase-title" className="reveal-delay-1 text-center text-sm font-semibold tracking-[-0.02em] whitespace-nowrap sm:text-base md:text-right md:text-xl lg:text-[22px]">
             One POS. Every Kind Of Business.
           </h2>
         </div>
