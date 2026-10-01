@@ -10,6 +10,10 @@ const bricolageGrotesque = Bricolage_Grotesque({
 export const metadata: Metadata = {
   title: "Aussie's POS Solutions",
   description: "POS systems and payment solutions for Australian businesses.",
+  icons: {
+    icon: "/globe.svg",
+    shortcut: "/globe.svg",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

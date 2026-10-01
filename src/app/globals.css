@@ -354,6 +354,138 @@ html {
   transform: translateX(-50%);
 }
 
+.ecosystem-accordion {
+  position: absolute;
+  top: 42px;
+  left: 50%;
+  z-index: 20;
+  display: none;
+  width: min(440px, calc(100vw - 32px));
+  gap: clamp(8px, 0.55vw, 10px);
+  padding: clamp(8px, 0.6vw, 11px);
+  border: 1px solid rgba(0, 95, 77, 0.08);
+  border-radius: 14px;
+  background: rgba(224, 239, 235, 0.94);
+  box-shadow: 0 18px 46px rgba(0, 70, 58, 0.12);
+  backdrop-filter: blur(12px);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(-50%);
+  transition: opacity 240ms ease;
+}
+
+.ecosystem-accordion[data-rendered="true"] {
+  display: grid;
+}
+
+.ecosystem-accordion[data-visible="true"] {
+  opacity: 1;
+}
+
+.ecosystem-accordion-item {
+  overflow: hidden;
+  border: 1px solid rgba(0, 95, 77, 0.08);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 10px 28px rgba(0, 70, 58, 0.07);
+  transition: border-color 300ms ease, background-color 300ms ease, box-shadow 350ms ease, transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes ecosystem-card-swap {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.ecosystem-accordion-current {
+  animation: ecosystem-card-swap 280ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.ecosystem-accordion-item[data-highlighted="true"] {
+  border-color: rgba(0, 143, 116, 0.38);
+  background: #f1faf8;
+  box-shadow: 0 15px 34px rgba(0, 95, 77, 0.13);
+  transform: translateX(5px);
+}
+
+.ecosystem-accordion-item[data-open="true"] {
+  border-color: rgba(0, 143, 116, 0.24);
+  background: #ffffff;
+}
+
+.ecosystem-accordion-item[data-open="true"][data-highlighted="true"] {
+  background: #e8f6f2;
+}
+
+.ecosystem-accordion-trigger {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  padding: clamp(17px, 1.3vw, 23px) clamp(17px, 1.3vw, 23px) 0;
+  text-align: left;
+}
+
+.ecosystem-accordion-badge {
+  display: inline-flex;
+  height: 25px;
+  min-width: 74px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #005343 0%, #00977d 100%);
+  padding: 0 13px;
+  color: white;
+  font-size: 9px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+.ecosystem-accordion-title {
+  display: block;
+  margin-top: 13px;
+  font-size: clamp(22px, 1.85vw, 30px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  white-space: nowrap;
+}
+
+.ecosystem-accordion-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 420ms cubic-bezier(0.22, 1, 0.36, 1), opacity 280ms ease;
+}
+
+.ecosystem-accordion-panel p {
+  min-height: 0;
+  overflow: hidden;
+  padding: 0 clamp(17px, 1.3vw, 23px);
+  color: #71717a;
+  font-size: clamp(12px, 0.75vw, 13px);
+  line-height: 1.6;
+  transition: padding 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ecosystem-accordion-item[data-open="true"] .ecosystem-accordion-panel {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.ecosystem-accordion-item[data-open="true"] .ecosystem-accordion-panel p {
+  padding-top: 9px;
+  padding-bottom: clamp(17px, 1.3vw, 23px);
+}
+
 .ecosystem-layer {
   position: absolute;
   left: 50%;
@@ -361,8 +493,6 @@ html {
   overflow: hidden;
   border: 2px solid rgba(255, 255, 255, 0.94);
   border-radius: 9999px;
-  cursor: pointer;
-  appearance: none;
   opacity: 0;
   transform: translate(-50%, -50%) scale(0.72);
   transition: opacity 650ms ease, transform 1000ms cubic-bezier(0.16, 1, 0.3, 1), background-color 420ms ease, box-shadow 420ms ease;
@@ -383,10 +513,10 @@ html {
   outline-offset: -5px;
 }
 
-.ecosystem-layer-payments[data-selected="true"] { background: #ccebe5; box-shadow: inset 0 0 45px rgba(0, 143, 116, 0.1); }
-.ecosystem-layer-software[data-selected="true"] { background: #b8dfd7; box-shadow: inset 0 0 42px rgba(0, 143, 116, 0.12); }
-.ecosystem-layer-hardware[data-selected="true"] { background: #9fd2c8; box-shadow: inset 0 0 38px rgba(0, 143, 116, 0.14); }
-.ecosystem-layer-apps[data-selected="true"] { background: #83c5b8; box-shadow: inset 0 0 34px rgba(0, 116, 94, 0.16); }
+.ecosystem-layer-payments[data-highlighted="true"] { background: #c7e8e1; }
+.ecosystem-layer-software[data-highlighted="true"] { background: #a9dbd1; }
+.ecosystem-layer-hardware[data-highlighted="true"] { background: #8dcec1; }
+.ecosystem-layer-apps[data-highlighted="true"] { background: #70bdad; }
 
 .ecosystem-layer-label {
   position: absolute;
@@ -460,14 +590,10 @@ html {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .ecosystem-layer-payments:not([data-selected="true"]):hover { background: #e0f2ee; }
-  .ecosystem-layer-software:not([data-selected="true"]):hover { background: #cde8e2; }
-  .ecosystem-layer-hardware:not([data-selected="true"]):hover { background: #b9ddd5; }
-  .ecosystem-layer-apps:not([data-selected="true"]):hover { background: #a5d2c8; }
-
-  .ecosystem-layer[data-selected="true"]:hover {
-    filter: saturate(1.08);
-  }
+  .ecosystem-layer-payments:hover { background: #c7e8e1; }
+  .ecosystem-layer-software:hover { background: #a9dbd1; }
+  .ecosystem-layer-hardware:hover { background: #8dcec1; }
+  .ecosystem-layer-apps:hover { background: #70bdad; }
 
   .equipment-option:hover .equipment-card-shell {
     transform: translateY(-10px) scale(1.015);
@@ -567,6 +693,30 @@ html {
 
   .tools-card-payment[data-revealed="true"]:hover .payment-feature:nth-child(even) {
     transform: translateY(-11px) scale(1.055);
+  }
+}
+
+@media (min-width: 1024px) {
+  .ecosystem-rings {
+    top: 82px;
+    bottom: auto;
+  }
+
+  .ecosystem-accordion {
+    top: 82px;
+    left: max(12px, calc(50% - min(32vw, 420px) - clamp(480px, 29vw, 560px) - 16px));
+    width: clamp(480px, 29vw, 560px);
+    transform: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  #business-ecosystem {
+    min-height: 1080px;
+  }
+
+  .ecosystem-accordion-title {
+    white-space: normal;
   }
 }
 
@@ -683,6 +833,16 @@ html {
   .ecosystem-logo,
   .ecosystem-stage[data-revealed="true"] .ecosystem-logo {
     transform: translate(-50%, -50%);
+  }
+
+  .ecosystem-accordion-item,
+  .ecosystem-accordion-panel,
+  .ecosystem-accordion-panel p {
+    transition: none;
+  }
+
+  .ecosystem-accordion-current {
+    animation: none;
   }
 
 }
