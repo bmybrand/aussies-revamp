@@ -49,16 +49,18 @@ export function HomeContent() {
         timerPaused={isShowcaseFocused}
       />
       <BusinessTools />
-      <BusinessShowcase
-        activeCategoryIndex={visibleShowcaseCategoryIndex}
-        onCategorySelect={selectShowcaseCategory}
-        onFocusChange={handleShowcaseFocus}
-      />
-      
-      <EquipmentOptions />
-      <SupplierBenefits />
-      <CustomerTestimonial />
-      <BusinessEcosystem />
+      <div className="relative">
+        <BusinessShowcase
+          activeCategoryIndex={visibleShowcaseCategoryIndex}
+          onCategorySelect={selectShowcaseCategory}
+          onFocusChange={handleShowcaseFocus}
+        />
+
+        <EquipmentOptions />
+        <SupplierBenefits />
+        <CustomerTestimonial />
+        <BusinessEcosystem />
+      </div>
     </>
   );
 }

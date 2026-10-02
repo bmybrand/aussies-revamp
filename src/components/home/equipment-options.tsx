@@ -65,7 +65,7 @@ export function EquipmentOptions() {
                 data-reveal="card"
                 className={`equipment-option ${revealDelays[index]}`}
               >
-                <div className="equipment-card-shell relative min-h-[clamp(440px,33vw,530px)] overflow-hidden rounded-2xl bg-[#fbfbfa] px-7 pb-8 pt-8 text-zinc-950 shadow-[0_18px_45px_rgba(0,47,39,0.12)]">
+                <div className="equipment-card-shell relative aspect-[1/1.11] overflow-hidden rounded-2xl bg-[#fbfbfa] px-7 pb-8 pt-8 text-zinc-950 shadow-[0_18px_45px_rgba(0,47,39,0.12)]">
                   <Image
                     src="/Group.png"
                     alt=""
