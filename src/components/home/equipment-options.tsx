@@ -58,7 +58,7 @@ export function EquipmentOptions() {
             </div>
           </div>
 
-          <div className="mt-14 grid gap-5 lg:grid-cols-3">
+          <div className="mt-14 grid gap-5 md:grid-cols-2 2xl:grid-cols-3">
             {equipmentOptions.map((option, index) => (
               <article
                 key={option.badge}
