@@ -32,9 +32,9 @@ export function EquipmentOptions() {
       <section
         id="pricing"
         aria-labelledby="equipment-options-title"
-        className="flex min-h-svh items-center overflow-hidden bg-[linear-gradient(180deg,#009279_0%,#00725f_52%,#005343_100%)] px-6 py-20 text-white sm:px-10 lg:px-12 lg:py-24"
+        className="flex min-h-svh items-center overflow-hidden bg-[linear-gradient(180deg,#009279_0%,#00725f_52%,#005343_100%)] px-4 py-20 text-white sm:px-6 lg:px-[clamp(5rem,8vw,10rem)] lg:py-24"
       >
-        <div className="mx-auto w-full max-w-[1320px]">
+        <div className="mx-auto w-full">
           <div className="flex flex-col gap-7 sm:flex-row sm:items-end sm:justify-between">
             <div data-reveal="left">
               <p className={`${manrope.className} mb-5 text-xs font-medium uppercase tracking-[0.08em] text-white/90 sm:text-base`}>

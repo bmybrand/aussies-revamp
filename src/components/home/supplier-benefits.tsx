@@ -144,8 +144,8 @@ export function SupplierBenefits() {
         aria-labelledby="supplier-benefits-title"
         className="relative bg-[#fdfdfc] text-zinc-950"
       >
-        <div className="flex items-center overflow-hidden px-5 py-16 sm:px-8 lg:sticky lg:top-0 lg:h-svh lg:py-14 lg:pl-[7vw] lg:pr-0">
-          <div className="mx-auto w-full max-w-[1600px] lg:max-w-none">
+        <div className="flex items-center overflow-hidden py-16 lg:sticky lg:top-0 lg:h-svh lg:py-14">
+          <div className="mx-auto w-[calc(100%-2rem)] sm:w-[calc(100%-3rem)] lg:w-[calc(100%-clamp(10rem,16vw,20rem))]">
             <div data-reveal="left" className="max-w-[760px]">
               <h2
                 id="supplier-benefits-title"
@@ -160,11 +160,11 @@ export function SupplierBenefits() {
 
             <div
               ref={viewportRef}
-              className="-mr-5 mt-8 w-[calc(100%+1.25rem)] snap-x snap-mandatory overflow-x-auto overscroll-x-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:-mr-8 sm:w-[calc(100%+2rem)] lg:-ml-[7vw] lg:mr-0 lg:mt-10 lg:w-[calc(100%+7vw)] lg:snap-none lg:overflow-hidden"
+              className="-mr-4 mt-8 w-[calc(100%+1rem)] snap-x snap-mandatory overflow-x-auto overscroll-x-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:-mr-6 sm:w-[calc(100%+1.5rem)] lg:ml-[calc(50%-50vw)] lg:mr-0 lg:mt-10 lg:w-screen lg:snap-none lg:overflow-hidden"
             >
               <div
                 ref={railRef}
-                className="flex w-max gap-4 pb-3 pr-5 will-change-transform sm:pr-8 lg:gap-5 lg:pl-[7vw] lg:pr-0"
+                className="flex w-max gap-4 pb-3 pr-4 will-change-transform sm:pr-6 lg:gap-5 lg:pl-[clamp(5rem,8vw,10rem)] lg:pr-0"
               >
                 {supplierBenefits.map((benefit, index) => (
                   <article

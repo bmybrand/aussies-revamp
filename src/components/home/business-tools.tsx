@@ -156,15 +156,16 @@ function SalesStatIcon({ type }: { type: string }) {
 export function BusinessTools() {
   return (
     <InViewReveal className="bg-white">
-      <section id="pos-systems" aria-labelledby="business-tools-title" className="bg-white px-6 py-20 text-zinc-950 sm:px-10 lg:px-12 lg:py-24">
-      <div className="mx-auto w-full max-w-[1320px]">
-        <div className="grid gap-8 md:grid-cols-[1.08fr_0.92fr] md:items-center lg:gap-20">
+      <section id="pos-systems" aria-labelledby="business-tools-title" className="bg-white px-4 py-20 text-zinc-950 sm:px-6 lg:px-[clamp(5rem,8vw,10rem)] lg:py-24">
+      <div className="mx-auto w-full">
+        <div className="grid gap-8 md:grid-cols-[1.2fr_0.8fr] md:items-center lg:gap-16">
           <div data-reveal="left">
             <EyebrowLabel className="mb-5 text-[#005f50]">
               Everything you need to run your business
             </EyebrowLabel>
-            <h2 id="business-tools-title" className="max-w-[660px] text-[clamp(2.15rem,3.3vw,3.8rem)] font-semibold leading-[1.08] tracking-[-0.045em] text-balance">
-              Powerful POS Tools. Built Around Your Business.
+            <h2 id="business-tools-title" className="max-w-[780px] text-[clamp(2.15rem,3.3vw,3.8rem)] font-semibold leading-[1.08] tracking-[-0.045em] text-balance">
+              <span className="xl:whitespace-nowrap">Powerful POS Tools. Built</span>{" "}
+              <span className="xl:block xl:whitespace-nowrap">Around Your Business.</span>
             </h2>
           </div>
 
@@ -184,7 +185,7 @@ export function BusinessTools() {
                 className="tools-image object-cover"
               />
             </div>
-            <h3 className="mt-4 text-sm font-semibold">Built For Your Business</h3>
+            <h3 className="mt-4 text-[clamp(0.75rem,1.15vw,1.125rem)] font-semibold">Built For Your Business</h3>
           </article>
 
           <article data-reveal="card" className="tools-card tools-card-sales reveal-delay-3">
@@ -246,7 +247,7 @@ export function BusinessTools() {
                 ))}
               </div>
             </div>
-            <h3 className="mt-4 text-sm font-semibold">Real-Time Business Insights</h3>
+            <h3 className="mt-4 text-[clamp(0.75rem,1.15vw,1.125rem)] font-semibold">Real-Time Business Insights</h3>
           </article>
 
           <article data-reveal="card" className="tools-card tools-card-inventory reveal-delay-4">
@@ -294,7 +295,7 @@ export function BusinessTools() {
                 </div>
               </div>
             </div>
-            <h3 className="mt-4 text-sm font-semibold">Simple Inventory Management</h3>
+            <h3 className="mt-4 text-[clamp(0.75rem,1.15vw,1.125rem)] font-semibold">Simple Inventory Management</h3>
           </article>
 
           <article data-reveal="card" className="tools-card tools-card-payment reveal-delay-5">
@@ -304,8 +305,8 @@ export function BusinessTools() {
                   <CheckIcon className="size-[62%]" />
                 </span>
                 <span>
-                  <span className="block whitespace-nowrap text-[clamp(0.55rem,0.9vw,0.78rem)] font-semibold leading-tight tracking-[-0.025em]">Payment Successful</span>
-                  <span className={`${manrope.className} mt-1 block whitespace-nowrap text-[clamp(0.45rem,0.67vw,0.62rem)] leading-none text-zinc-500`}>Approved in 1.2s</span>
+                  <span className="block whitespace-nowrap text-[clamp(0.58rem,0.95vw,1.05rem)] font-semibold leading-tight tracking-[-0.025em]">Payment Successful</span>
+                  <span className={`${manrope.className} mt-1 block whitespace-nowrap text-[clamp(0.46rem,0.72vw,0.82rem)] leading-none text-zinc-500`}>Approved in 1.2s</span>
                 </span>
               </div>
 
@@ -321,7 +322,7 @@ export function BusinessTools() {
                     <span className="mx-auto flex aspect-square w-full items-center justify-center rounded-[11px] bg-[#075046] text-[#08e4c0]">
                       <SecurityFeatureIcon type={feature.icon} />
                     </span>
-                    <span className="mt-[9%] block text-[clamp(0.42rem,0.64vw,0.58rem)] font-medium leading-[1.45] text-white/95">
+                    <span className="mt-[9%] block text-[clamp(0.44rem,0.7vw,0.82rem)] font-medium leading-[1.4] text-white/95">
                       <span className="block whitespace-nowrap">{feature.lines[0]}</span>
                       <span className="block whitespace-nowrap">{feature.lines[1]}</span>
                     </span>
@@ -329,7 +330,7 @@ export function BusinessTools() {
                 ))}
               </div>
             </div>
-            <h3 className="mt-4 text-sm font-semibold">Fast, Secure &amp; Reliable</h3>
+            <h3 className="mt-4 text-[clamp(0.75rem,1.15vw,1.125rem)] font-semibold">Fast, Secure &amp; Reliable</h3>
           </article>
         </div>
       </div>

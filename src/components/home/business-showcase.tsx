@@ -254,7 +254,7 @@ export function BusinessShowcase({
   return (
     <InViewReveal className="contents">
       <header className="sticky top-[var(--sticky-nav-offset)] z-40 shrink-0 bg-[#008F74]/95 text-white shadow-[0_10px_28px_rgba(0,45,37,0.22)] backdrop-blur-md transition-[top] duration-[420ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)]">
-        <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-2 px-3 py-2 sm:px-6 md:h-[60px] md:flex-row md:items-center md:justify-between md:gap-4 md:px-5 md:py-0">
+        <div className="mx-auto flex w-[calc(100%-2rem)] flex-col gap-2 py-2 sm:w-[calc(100%-3rem)] md:h-[60px] md:flex-row md:items-center md:justify-between md:gap-4 md:py-0 lg:w-[calc(100%-clamp(10rem,16vw,20rem))]">
           <nav data-reveal="left" aria-label="Business types" className="grid w-full grid-cols-3 gap-1.5 md:flex md:w-auto md:gap-3 md:overflow-x-auto">
             {showcaseCategories.map((category, index) => (
               <button
@@ -301,7 +301,7 @@ export function BusinessShowcase({
         <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(0,0,0,0.62)_0%,rgba(0,0,0,0.1)_58%,rgba(0,0,0,0.35)_100%)]" />
         <div aria-hidden="true" className="absolute inset-x-0 bottom-0 -z-10 h-1/2 bg-[linear-gradient(to_bottom,transparent,rgba(0,0,0,0.64))]" />
 
-        <div className="relative mx-auto flex h-full w-full max-w-[1440px] flex-col justify-between px-6 py-10 sm:px-10 lg:px-5 lg:py-12">
+        <div className="relative mx-auto flex h-full w-[calc(100%-2rem)] flex-col justify-between py-10 sm:w-[calc(100%-3rem)] lg:w-[calc(100%-clamp(10rem,16vw,20rem))] lg:py-12">
           <h3 data-reveal="left" key={activeCategory.headline} className="hero-slide-content reveal-delay-2 max-w-[720px] text-[clamp(2rem,3vw,3.25rem)] font-semibold leading-[1.18] tracking-[-0.04em] text-balance">
             {activeCategory.headline}
           </h3>

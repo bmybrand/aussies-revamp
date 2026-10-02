@@ -130,7 +130,7 @@ export function HomeHero({
           className="absolute inset-x-0 bottom-0 -z-10 h-60 bg-[linear-gradient(to_bottom,transparent,rgba(0,0,0,0.88))]"
         />
 
-        <div className="mx-auto flex h-svh w-full max-w-[1440px] shrink-0 items-end px-6 pb-16 pt-40 sm:px-10 sm:pb-20 lg:px-5 lg:pb-[66px]">
+        <div className="mx-auto flex h-svh w-[calc(100%-2rem)] shrink-0 items-end pb-16 pt-40 sm:w-[calc(100%-3rem)] sm:pb-20 lg:w-[calc(100%-clamp(10rem,16vw,20rem))] lg:pb-[66px]">
           <div
             key={`content-${activeIndex}`}
             className="hero-slide-content flex w-full flex-col gap-10 lg:flex-row lg:items-end lg:justify-between"

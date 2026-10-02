@@ -30,7 +30,7 @@ export function CustomerTestimonial() {
           className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(2,18,15,0.64)_0%,rgba(2,18,15,0.48)_42%,rgba(2,18,15,0.18)_72%,rgba(2,18,15,0.3)_100%)]"
         />
 
-        <div className="mx-auto flex min-h-svh w-full max-w-[1440px] flex-col justify-between px-6 py-20 sm:px-10 lg:px-12 lg:py-24">
+        <div className="mx-auto flex min-h-svh w-[calc(100%-2rem)] flex-col justify-between py-20 sm:w-[calc(100%-3rem)] lg:w-[calc(100%-clamp(10rem,16vw,20rem))] lg:py-24">
           <div data-reveal="left" className="testimonial-quote-block max-w-[760px]">
             <QuoteMark />
             <blockquote
