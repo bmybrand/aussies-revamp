@@ -180,7 +180,7 @@ export function SupplierBenefits() {
                       className="object-cover transition-transform duration-1000 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.055]"
                     />
                     <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.18)_0%,transparent_30%,rgba(0,0,0,0.08)_100%)]" />
-                    <span className="absolute right-4 top-4 inline-flex min-h-7 items-center rounded-full border border-white/35 bg-zinc-900/65 px-3.5 text-[10px] font-medium tracking-[0.01em] text-white shadow-lg backdrop-blur-md transition-[background-color,transform] duration-500 group-hover:-translate-y-0.5 group-hover:bg-[#008F74]/90 sm:text-[11px]">
+                    <span className="absolute right-5 top-5 inline-flex min-h-9 items-center rounded-[11px] border border-white/45 bg-[#65564f]/70 px-3.5 text-[clamp(0.7rem,0.78vw,0.875rem)] font-medium tracking-[-0.01em] text-white shadow-[0_5px_16px_rgba(0,0,0,0.18)] backdrop-blur-md transition-colors duration-500 group-hover:bg-[#554843]/78">
                       {benefit.label}
                     </span>
                     <div

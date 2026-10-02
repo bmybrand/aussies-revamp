@@ -24,7 +24,7 @@ export function BrandLogo({ isScrolled = false }: BrandLogoProps) {
         preload
       />
       <Image
-        src="/aussies-pos-logo-scrolled.png"
+        src="/aussies-logo-scrolled-text-black.png"
         alt=""
         width={3744}
         height={790}
