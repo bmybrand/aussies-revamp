@@ -257,7 +257,7 @@ export function BusinessShowcase({
         className="sticky top-[calc(100svh-86px)] z-50 h-[86px] shrink-0 bg-[#008F74]/95 text-white shadow-[0_-10px_28px_rgba(0,45,37,0.22)] backdrop-blur-md md:top-[calc(100svh-60px)] md:h-[60px]"
       >
         <div className="mx-auto flex w-[calc(100%-2rem)] flex-col gap-2 py-2 sm:w-[calc(100%-3rem)] md:h-[60px] md:flex-row md:items-center md:justify-between md:gap-4 md:py-0 lg:w-[calc(100%-clamp(10rem,16vw,20rem))]">
-          <nav data-reveal="left" aria-label="Business types" className="grid w-full grid-cols-3 gap-1.5 md:flex md:w-auto md:gap-3 md:overflow-x-auto">
+          <nav aria-label="Business types" className="grid w-full grid-cols-3 gap-1.5 md:flex md:w-auto md:gap-3 md:overflow-x-auto">
             {showcaseCategories.map((category, index) => (
               <button
                 key={category.label}
@@ -276,7 +276,7 @@ export function BusinessShowcase({
             ))}
           </nav>
 
-          <h2 data-reveal="right" id="business-showcase-title" className="reveal-delay-1 text-center text-sm font-semibold tracking-[-0.02em] whitespace-nowrap sm:text-base md:text-right md:text-xl lg:text-[22px]">
+          <h2 id="business-showcase-title" className="text-center text-sm font-semibold tracking-[-0.02em] whitespace-nowrap sm:text-base md:text-right md:text-xl lg:text-[22px]">
             One POS. Every Kind Of Business.
           </h2>
         </div>
