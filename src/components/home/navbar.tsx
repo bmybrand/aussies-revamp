@@ -117,7 +117,7 @@ export function Navbar() {
 
         <Link
           href="#quote"
-          className={`hidden items-center justify-center rounded-[9px] px-6 text-[15px] font-medium shadow-sm transition-[height,min-width,background-color,color] duration-500 md:inline-flex ${
+          className={`hidden items-center justify-center rounded-[9px] px-6 text-[17px] font-medium shadow-sm transition-[height,min-width,background-color,color] duration-500 md:inline-flex ${
             isScrolled
               ? "h-10 min-w-[210px] bg-[#008F74] text-white ring-1 ring-[#008F74] hover:bg-white hover:text-zinc-950 hover:ring-zinc-200"
               : "h-[46px] min-w-[230px] bg-white text-zinc-950 hover:bg-[#008F74] hover:text-white"
@@ -152,7 +152,7 @@ export function Navbar() {
                 {item.label}
               </Link>
             ))}
-            <Link href="#quote" className="mt-2 rounded-xl bg-[#008F74] px-4 py-3 text-center text-[17px] font-medium text-white hover:bg-[#005343]">
+            <Link href="#quote" className="mt-2 rounded-xl bg-[#008F74] px-4 py-3 text-center text-[19px] font-medium text-white hover:bg-[#005343]">
               Get A Free POS Quote
             </Link>
           </nav>

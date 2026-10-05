@@ -264,7 +264,7 @@ export function BusinessShowcase({
                 type="button"
                 onClick={() => selectCategory(index)}
                 aria-pressed={index === activeCategoryIndex}
-                className={`inline-flex h-9 min-w-0 items-center justify-center gap-1.5 rounded-lg border px-1.5 text-[10px] font-medium whitespace-nowrap transition-colors sm:h-10 sm:gap-2 sm:px-3 sm:text-xs md:h-11 md:shrink-0 md:gap-2.5 md:px-5 ${
+                className={`inline-flex h-9 min-w-0 items-center justify-center gap-1.5 rounded-lg border px-1.5 text-[11px] font-medium whitespace-nowrap transition-colors sm:h-10 sm:gap-2 sm:px-3 sm:text-xs md:h-11 md:shrink-0 md:gap-2.5 md:px-5 ${
                   index === activeCategoryIndex
                     ? "border-white bg-transparent text-white ring-1 ring-inset ring-white"
                     : "border-black/10 bg-white/90 text-zinc-800 hover:bg-white"
@@ -276,7 +276,7 @@ export function BusinessShowcase({
             ))}
           </nav>
 
-          <h2 id="business-showcase-title" className="text-center text-sm font-semibold tracking-[-0.02em] whitespace-nowrap sm:text-base md:text-right md:text-xl lg:text-[22px]">
+          <h2 id="business-showcase-title" className="text-center text-sm font-semibold tracking-[-0.02em] whitespace-nowrap sm:text-base md:text-right md:text-xl lg:text-[24px]">
             One POS. Every Kind Of Business.
           </h2>
         </div>
@@ -304,7 +304,7 @@ export function BusinessShowcase({
         <div aria-hidden="true" className="absolute inset-x-0 bottom-0 -z-10 h-1/2 bg-[linear-gradient(to_bottom,transparent,rgba(0,0,0,0.64))]" />
 
         <div className="relative mx-auto flex h-full w-[calc(100%-2rem)] flex-col justify-between py-10 sm:w-[calc(100%-3rem)] lg:w-[calc(100%-clamp(10rem,16vw,20rem))] lg:py-12">
-          <h3 data-reveal="left" key={activeCategory.headline} className="hero-slide-content reveal-delay-2 max-w-[720px] text-[clamp(2rem,3vw,3.25rem)] font-semibold leading-[1.18] tracking-[-0.04em] text-balance">
+          <h3 data-reveal="left" key={activeCategory.headline} className="hero-slide-content reveal-delay-2 max-w-[780px] text-[clamp(2.2rem,3.25vw,3.55rem)] font-semibold leading-[1.16] tracking-[-0.04em] text-balance">
             {activeCategory.headline}
           </h3>
 
@@ -379,7 +379,7 @@ function ProductCard({ product, active, onClick }: ProductCardProps) {
     >
       <span
         aria-hidden={!active}
-        className={`flex shrink-0 items-center justify-center overflow-hidden bg-[#008F74] px-1 text-center text-[10px] font-medium whitespace-nowrap text-white transition-[height,opacity] duration-500 ease-out sm:text-[11px] ${
+        className={`flex shrink-0 items-center justify-center overflow-hidden bg-[#008F74] px-1 text-center text-[11px] font-medium whitespace-nowrap text-white transition-[height,opacity] duration-500 ease-out sm:text-[12px] ${
           active ? "h-7 opacity-100" : "h-0 opacity-0"
         }`}
       >

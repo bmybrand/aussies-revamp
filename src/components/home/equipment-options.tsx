@@ -42,7 +42,7 @@ export function EquipmentOptions() {
               </p>
               <h2
                 id="equipment-options-title"
-                className="max-w-[660px] text-[clamp(2.15rem,3.3vw,3.8rem)] font-semibold leading-[1.08] tracking-[-0.045em] text-balance"
+                className="max-w-[720px] text-[clamp(2.35rem,3.55vw,4.1rem)] font-semibold leading-[1.08] tracking-[-0.045em] text-balance"
               >
                 Get Your POS Your Way
               </h2>
@@ -80,15 +80,15 @@ export function EquipmentOptions() {
                       {option.badge}
                     </span>
 
-                    <h3 className="equipment-card-title mt-4 text-[clamp(1.5rem,2vw,2rem)] font-semibold leading-[1.15] tracking-[-0.035em]">
+                    <h3 className="equipment-card-title mt-4 text-[clamp(1.65rem,2.15vw,2.2rem)] font-semibold leading-[1.15] tracking-[-0.035em]">
                       {option.title}
                     </h3>
 
-                    <p className="equipment-card-description mt-3 max-w-[94%] text-sm leading-6 text-zinc-500 lg:text-[15px]">
+                    <p className="equipment-card-description mt-3 max-w-[94%] text-sm leading-6 text-zinc-500 lg:text-[17px]">
                       {option.description}
                     </p>
 
-                    <div className="equipment-card-list mt-8 text-sm leading-7 text-zinc-500 lg:text-[15px]">
+                    <div className="equipment-card-list mt-8 text-sm leading-7 text-zinc-500 lg:text-[17px]">
                       <p>Best For:</p>
                       <ul>
                         {option.bestFor.map((item) => (

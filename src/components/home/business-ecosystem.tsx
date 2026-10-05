@@ -177,7 +177,7 @@ export function BusinessEcosystem() {
       >
         <div className="relative h-[1320px] w-full sm:h-[1120px] lg:h-[720px] lg:-translate-y-[72px]">
         <div data-reveal className="relative z-10 mx-auto max-w-[1100px] px-6 pt-20 text-center sm:px-10 sm:pt-24">
-          <h2 id="business-ecosystem-title" className="text-[clamp(2rem,3vw,3.15rem)] font-semibold leading-[1.1] tracking-[-0.04em] text-balance">
+          <h2 id="business-ecosystem-title" className="text-[clamp(2.2rem,3.25vw,3.45rem)] font-semibold leading-[1.1] tracking-[-0.04em] text-balance">
             Everything You Need To Run Your Business
           </h2>
           <p className="mx-auto mt-5 max-w-[760px] text-sm leading-6 text-zinc-500 sm:text-base">

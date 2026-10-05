@@ -142,7 +142,7 @@ export function HomeHero({
 
               <h1
                 id="home-hero-heading"
-                className="max-w-[950px] font-sans text-[clamp(2.25rem,2.75vw,2.9rem)] font-semibold leading-[1.4] tracking-[-0.035em] text-balance"
+                className="max-w-[1020px] font-sans text-[clamp(2.45rem,3vw,3.2rem)] font-semibold leading-[1.32] tracking-[-0.035em] text-balance"
               >
                 {activeSlide.title}
               </h1>

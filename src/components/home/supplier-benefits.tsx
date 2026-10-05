@@ -149,7 +149,7 @@ export function SupplierBenefits() {
             <div data-reveal="left" className="max-w-[760px]">
               <h2
                 id="supplier-benefits-title"
-                className="text-[clamp(2.2rem,3.2vw,3.75rem)] font-semibold leading-[1.08] tracking-[-0.045em] text-balance"
+                className="text-[clamp(2.4rem,3.45vw,4.05rem)] font-semibold leading-[1.08] tracking-[-0.045em] text-balance"
               >
                 More Than A POS Supplier
               </h2>
@@ -170,7 +170,7 @@ export function SupplierBenefits() {
                   <article
                     key={benefit.label}
                     data-reveal="card"
-                    className={`supplier-benefit-card reveal-delay-${index + 1} group relative isolate aspect-[2/3] w-[82vw] max-w-[390px] shrink-0 snap-start overflow-hidden rounded-2xl bg-zinc-200 shadow-[0_16px_38px_rgba(0,45,37,0.1)] sm:w-[45vw] lg:w-[clamp(360px,24vw,430px)] lg:max-w-none lg:[scroll-snap-align:none]`}
+                    className={`supplier-benefit-card reveal-delay-${index + 1} group relative isolate aspect-[2/3] w-[82vw] max-w-[390px] shrink-0 snap-start overflow-hidden rounded-2xl bg-zinc-200 sm:w-[45vw] lg:w-[clamp(360px,24vw,430px)] lg:max-w-none lg:[scroll-snap-align:none]`}
                   >
                     <Image
                       src={benefit.image}
@@ -180,7 +180,7 @@ export function SupplierBenefits() {
                       className="object-cover transition-transform duration-1000 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.055]"
                     />
                     <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.18)_0%,transparent_30%,rgba(0,0,0,0.08)_100%)]" />
-                    <span className="absolute right-5 top-5 inline-flex min-h-9 items-center rounded-[11px] border border-white/45 bg-[#65564f]/70 px-3.5 text-[clamp(0.7rem,0.78vw,0.875rem)] font-medium tracking-[-0.01em] text-white shadow-[0_5px_16px_rgba(0,0,0,0.18)] backdrop-blur-md transition-colors duration-500 group-hover:bg-[#554843]/78">
+                    <span className="absolute right-5 top-5 inline-flex min-h-9 items-center rounded-[11px] border border-white/45 bg-[#65564f]/70 px-3.5 text-[clamp(0.65rem,0.7vw,0.8rem)] font-medium tracking-[-0.01em] text-white shadow-[0_5px_16px_rgba(0,0,0,0.18)] backdrop-blur-md transition-colors duration-500 group-hover:bg-[#554843]/78">
                       {benefit.label}
                     </span>
                     <div

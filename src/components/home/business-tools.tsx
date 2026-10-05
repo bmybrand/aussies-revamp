@@ -163,13 +163,13 @@ export function BusinessTools() {
             <EyebrowLabel className="mb-5 text-[#005f50]">
               Everything you need to run your business
             </EyebrowLabel>
-            <h2 id="business-tools-title" className="max-w-[780px] text-[clamp(2.15rem,3.3vw,3.8rem)] font-semibold leading-[1.08] tracking-[-0.045em] text-balance">
+            <h2 id="business-tools-title" className="max-w-[850px] text-[clamp(2.35rem,3.55vw,4.1rem)] font-semibold leading-[1.08] tracking-[-0.045em] text-balance">
               <span className="xl:whitespace-nowrap">Powerful POS Tools. Built</span>{" "}
               <span className="xl:block xl:whitespace-nowrap">Around Your Business.</span>
             </h2>
           </div>
 
-          <p data-reveal="right" className="reveal-delay-1 max-w-[570px] text-sm leading-7 text-zinc-600 md:justify-self-end lg:text-[15px]">
+          <p data-reveal="right" className="reveal-delay-1 max-w-[610px] text-sm leading-7 text-zinc-600 md:justify-self-end lg:text-[17px]">
             From taking payments and managing products to tracking performance and supporting your team, bring the essential tools for your business together in one simple, connected POS system.
           </p>
         </div>
@@ -185,7 +185,7 @@ export function BusinessTools() {
                 className="tools-image object-cover"
               />
             </div>
-            <h3 className="mt-4 text-[clamp(0.75rem,1.15vw,1.125rem)] font-semibold 2xl:text-xl">Built For Your Business</h3>
+            <h3 className="mt-4 text-[clamp(0.78rem,1.05vw,1.05rem)] font-semibold">Built For Your Business</h3>
           </article>
 
           <article data-reveal="card" className="tools-card tools-card-sales reveal-delay-3">
@@ -202,7 +202,7 @@ export function BusinessTools() {
                 </div>
 
                 <div className="sales-total mt-3 flex items-end gap-2">
-                  <p className={`${manrope.className} text-[clamp(2.15rem,3vw,2.8rem)] font-semibold leading-none tracking-[-0.045em]`}>$2,817</p>
+                  <p className={`${manrope.className} text-[clamp(2.35rem,3.2vw,3.05rem)] font-semibold leading-none tracking-[-0.045em]`}>$2,817</p>
                   <span className={`${manrope.className} mb-1 inline-flex items-center text-sm font-semibold text-[#08e6ba]`}>
                     <svg viewBox="0 0 16 18" fill="none" aria-hidden="true" className="mr-0.5 h-4 w-3">
                       <path d="M8 16V3m0 0L3.5 7.5M8 3l4.5 4.5" stroke="currentColor" strokeWidth="2.1" strokeLinecap="round" strokeLinejoin="round" />
@@ -225,7 +225,7 @@ export function BusinessTools() {
                   </div>
                   <div className="absolute inset-x-0 bottom-0 grid grid-cols-7 gap-2 text-center">
                     {salesBars.map((bar) => (
-                      <span key={bar.label} className="text-[10px] text-white/65">{bar.label}</span>
+                      <span key={bar.label} className="text-[11px] text-white/65">{bar.label}</span>
                     ))}
                   </div>
                 </div>
@@ -240,14 +240,14 @@ export function BusinessTools() {
                   >
                     <div className="flex items-center gap-1.5 text-[#08e6ba]">
                       <SalesStatIcon type={stat.icon} />
-                      <span className={`${manrope.className} text-[clamp(1rem,1.5vw,1.25rem)] font-semibold leading-none text-white`}>{stat.value}</span>
+                      <span className={`${manrope.className} text-[clamp(1.1rem,1.62vw,1.38rem)] font-semibold leading-none text-white`}>{stat.value}</span>
                     </div>
-                    <span className="mt-2 text-[10px] text-white/60">{stat.label}</span>
+                    <span className="mt-2 text-[11px] text-white/60">{stat.label}</span>
                   </div>
                 ))}
               </div>
             </div>
-            <h3 className="mt-4 text-[clamp(0.75rem,1.15vw,1.125rem)] font-semibold 2xl:text-xl">Real-Time Business Insights</h3>
+            <h3 className="mt-4 text-[clamp(0.78rem,1.05vw,1.05rem)] font-semibold">Real-Time Business Insights</h3>
           </article>
 
           <article data-reveal="card" className="tools-card tools-card-inventory reveal-delay-4">
@@ -257,7 +257,7 @@ export function BusinessTools() {
 
               <div className="inventory-panel absolute inset-y-[11%] left-[7%] right-[3%] overflow-hidden rounded-2xl border border-zinc-200/80 bg-white py-[4%] shadow-[0_14px_28px_rgba(24,64,54,0.07)]">
                 <div className="inventory-header flex h-[14%] items-center justify-between pl-[6%] pr-[7%]">
-                  <span className="text-[clamp(1rem,1.5vw,1.3rem)] font-semibold tracking-[-0.03em]">Products</span>
+                  <span className="text-[clamp(1.1rem,1.62vw,1.42rem)] font-semibold tracking-[-0.03em]">Products</span>
                   <span className="flex h-8 w-16 items-center justify-center rounded-lg bg-zinc-100 text-zinc-400">
                     <svg viewBox="0 0 20 20" fill="none" aria-hidden="true" className="size-[18px]">
                       <circle cx="8.5" cy="8.5" r="4.75" stroke="currentColor" strokeWidth="1.6" />
@@ -283,8 +283,8 @@ export function BusinessTools() {
                         />
                       </span>
                       <span className="min-w-0 flex-1">
-                        <span className="block truncate text-[clamp(0.7rem,1vw,0.9rem)] font-semibold tracking-[-0.02em]">{item.name}</span>
-                        <span className={`${manrope.className} mt-0.5 block text-[clamp(0.58rem,0.8vw,0.7rem)] text-zinc-400`}>{item.sku}</span>
+                        <span className="block truncate text-[clamp(0.78rem,1.08vw,1rem)] font-semibold tracking-[-0.02em]">{item.name}</span>
+                        <span className={`${manrope.className} mt-0.5 block text-[clamp(0.65rem,0.88vw,0.78rem)] text-zinc-400`}>{item.sku}</span>
                       </span>
                       <span className={`${manrope.className} inventory-stock flex h-10 min-w-11 items-center justify-center rounded-lg bg-[#c9faea] px-2 text-sm font-semibold text-[#008F74]`}>{item.stock}</span>
                       <svg viewBox="0 0 16 24" fill="none" aria-hidden="true" className="h-5 w-3 shrink-0 text-zinc-400">
@@ -295,18 +295,18 @@ export function BusinessTools() {
                 </div>
               </div>
             </div>
-            <h3 className="mt-4 text-[clamp(0.75rem,1.15vw,1.125rem)] font-semibold 2xl:text-xl">Simple Inventory Management</h3>
+            <h3 className="mt-4 text-[clamp(0.78rem,1.05vw,1.05rem)] font-semibold">Simple Inventory Management</h3>
           </article>
 
           <article data-reveal="card" className="tools-card tools-card-payment reveal-delay-5">
-            <div className="tools-card-shell relative aspect-[317/430] overflow-hidden rounded-2xl bg-[radial-gradient(circle_at_78%_5%,#075248_0%,#003f36_42%,#00372f_100%)] text-white">
+            <div className="tools-card-shell relative aspect-[3/4] overflow-hidden rounded-2xl bg-[radial-gradient(circle_at_78%_5%,#075248_0%,#003f36_42%,#00372f_100%)] text-white">
               <div className="payment-notification absolute left-[4.5%] top-[12%] z-20 flex h-[16%] w-[66%] items-center gap-[2.5%] rounded-[13px] bg-[#f9fbfa] px-[7%] text-zinc-900 shadow-[0_7px_18px_rgba(0,31,26,0.14)]">
                 <span className="flex aspect-square w-[17%] shrink-0 items-center justify-center rounded-full bg-[#08cfaa] text-white">
                   <CheckIcon className="size-[62%]" />
                 </span>
                 <span>
-                  <span className="block whitespace-nowrap text-[clamp(0.58rem,0.95vw,1.05rem)] font-semibold leading-tight tracking-[-0.025em] 2xl:text-sm">Payment Successful</span>
-                  <span className={`${manrope.className} mt-1 block whitespace-nowrap text-[clamp(0.46rem,0.72vw,0.82rem)] leading-none text-zinc-500 2xl:text-[11px]`}>Approved in 1.2s</span>
+                  <span className="block whitespace-nowrap text-[clamp(0.65rem,1.02vw,1.15rem)] font-semibold leading-tight tracking-[-0.025em] 2xl:text-sm">Payment Successful</span>
+                  <span className={`${manrope.className} mt-1 block whitespace-nowrap text-[clamp(0.52rem,0.78vw,0.9rem)] leading-none text-zinc-500 2xl:text-[12px]`}>Approved in 1.2s</span>
                 </span>
               </div>
 
@@ -322,7 +322,7 @@ export function BusinessTools() {
                     <span className="mx-auto flex aspect-square w-full items-center justify-center rounded-[11px] bg-[#075046] text-[#08e4c0]">
                       <SecurityFeatureIcon type={feature.icon} />
                     </span>
-                    <span className="mt-[9%] block text-[clamp(0.44rem,0.7vw,0.82rem)] font-medium leading-[1.4] text-white/95 2xl:text-[11px]">
+                    <span className="mt-[9%] block text-[clamp(0.5rem,0.76vw,0.9rem)] font-medium leading-[1.4] text-white/95 2xl:text-[12px]">
                       <span className="block whitespace-nowrap">{feature.lines[0]}</span>
                       <span className="block whitespace-nowrap">{feature.lines[1]}</span>
                     </span>
@@ -330,7 +330,7 @@ export function BusinessTools() {
                 ))}
               </div>
             </div>
-            <h3 className="mt-4 text-[clamp(0.75rem,1.15vw,1.125rem)] font-semibold 2xl:text-xl">Fast, Secure &amp; Reliable</h3>
+            <h3 className="mt-4 text-[clamp(0.78rem,1.05vw,1.05rem)] font-semibold">Fast, Secure &amp; Reliable</h3>
           </article>
         </div>
       </div>

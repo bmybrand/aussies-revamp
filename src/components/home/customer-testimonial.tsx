@@ -35,7 +35,7 @@ export function CustomerTestimonial() {
             <QuoteMark />
             <blockquote
               id="customer-testimonial-quote"
-              className="testimonial-quote mt-6 text-[clamp(1.55rem,2.6vw,2.75rem)] font-semibold leading-[1.4] tracking-[-0.035em] text-balance"
+              className="testimonial-quote mt-6 text-[clamp(1.72rem,2.8vw,3rem)] font-semibold leading-[1.35] tracking-[-0.035em] text-balance"
             >
               We Wanted Something Simple For The Team But Powerful Enough To Handle The Busy Periods. The Setup Gives Us A Much Clearer View Of Sales And Makes Taking Payments Much Easier.
             </blockquote>
@@ -51,7 +51,7 @@ export function CustomerTestimonial() {
               </span>
               <span>
                 <span className="block text-sm font-medium text-white">Café / Restaurant Owner</span>
-                <span className="mt-0.5 block text-[11px] text-[#54d8bd]">Aussie&apos;s POS customer</span>
+                <span className="mt-0.5 block text-[12px] text-[#54d8bd]">Aussie&apos;s POS customer</span>
               </span>
             </div>
           </div>
