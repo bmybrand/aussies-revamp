@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { InViewReveal } from "./in-view-reveal";
 
 function QuoteMark() {
@@ -16,14 +15,18 @@ export function CustomerTestimonial() {
         aria-labelledby="customer-testimonial-quote"
         className="relative isolate flex min-h-svh overflow-hidden text-white"
       >
-        <Image
+        <video
           data-reveal="media"
-          src="/showcase/restaurant-pos.png"
-          alt="Point-of-sale terminal on a restaurant counter"
-          fill
-          sizes="100vw"
-          className="testimonial-media -z-30 object-cover object-center"
-        />
+          aria-hidden="true"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          className="testimonial-media absolute left-1/2 top-1/2 -z-30 h-[108%] w-[108%] max-w-none -translate-x-1/2 -translate-y-1/2 -rotate-[1.5deg] object-cover object-center"
+        >
+          <source src="/I consider clover our third (1) (1) (1).mp4" type="video/mp4" />
+        </video>
         <div aria-hidden="true" className="absolute inset-0 -z-20 bg-black/25" />
         <div
           aria-hidden="true"

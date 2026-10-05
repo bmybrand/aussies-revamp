@@ -16,7 +16,7 @@ const heroSlides = [
       "From Payment To POS Hardware, Aussie's POS Solution Helps Businesses",
     media: {
       type: "video" as const,
-      src: "/6005605_Hotel_Entrance_1920x1080.mp4",
+      src: "/Header (2).mp4",
     },
     primaryCta: { label: "Get My POS Quote", href: "#contact" },
     secondaryCta: {
