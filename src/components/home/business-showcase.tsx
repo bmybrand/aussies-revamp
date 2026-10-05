@@ -254,7 +254,7 @@ export function BusinessShowcase({
   return (
     <InViewReveal className="contents">
       <header
-        className="relative z-50 min-h-[86px] shrink-0 bg-[#008F74]/95 text-white shadow-[0_10px_28px_rgba(0,45,37,0.22)] backdrop-blur-md md:min-h-[60px]"
+        className="relative z-30 min-h-[86px] shrink-0 bg-[#008F74]/95 text-white shadow-[0_10px_28px_rgba(0,45,37,0.22)] backdrop-blur-md md:min-h-[60px]"
       >
         <div className="mx-auto flex w-[calc(100%-2rem)] flex-col gap-2 py-2 sm:w-[calc(100%-3rem)] md:h-[60px] md:flex-row md:items-center md:justify-between md:gap-4 md:py-0 lg:w-[calc(100%-clamp(10rem,16vw,20rem))]">
           <nav aria-label="Business types" className="grid w-full grid-cols-3 gap-1.5 md:flex md:w-auto md:gap-3 md:overflow-x-auto">
