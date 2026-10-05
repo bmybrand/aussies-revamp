@@ -6,6 +6,8 @@ import { BusinessEcosystem } from "./business-ecosystem";
 import { BusinessTools } from "./business-tools";
 import { CustomerTestimonial } from "./customer-testimonial";
 import { EquipmentOptions } from "./equipment-options";
+import { Footer } from "./footer";
+import { FooterCta } from "./footer-cta";
 import { HomeHero } from "./home-hero";
 import { SupplierBenefits } from "./supplier-benefits";
 
@@ -59,6 +61,8 @@ export function HomeContent() {
       <SupplierBenefits />
       <CustomerTestimonial />
       <BusinessEcosystem />
+      <FooterCta />
+      <Footer />
     </>
   );
 }

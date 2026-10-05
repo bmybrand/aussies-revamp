@@ -31,17 +31,17 @@ export function CustomerTestimonial() {
         />
 
         <div className="mx-auto flex min-h-svh w-[calc(100%-2rem)] flex-col justify-between py-20 sm:w-[calc(100%-3rem)] lg:w-[calc(100%-clamp(10rem,16vw,20rem))] lg:py-24">
-          <div data-reveal="left" className="testimonial-quote-block max-w-[760px]">
+          <div data-reveal="left" className="testimonial-quote-block w-full max-w-[calc(100vw-2rem)] sm:max-w-[calc(100vw-3rem)] md:w-[800px] lg:w-[850px] lg:max-w-none">
             <QuoteMark />
             <blockquote
               id="customer-testimonial-quote"
-              className="testimonial-quote mt-6 text-[clamp(1.72rem,2.8vw,3rem)] font-semibold leading-[1.35] tracking-[-0.035em] text-balance"
+              className="testimonial-quote mt-6 text-[clamp(1.65rem,2.6vw,2.75rem)] font-semibold leading-[1.38] tracking-[-0.035em]"
             >
               We Wanted Something Simple For The Team But Powerful Enough To Handle The Busy Periods. The Setup Gives Us A Much Clearer View Of Sales And Makes Taking Payments Much Easier.
             </blockquote>
           </div>
 
-          <div data-reveal="left" className="testimonial-owner reveal-delay-2 w-fit rounded-lg bg-[#00483d]/95 p-2.5 pr-5 shadow-xl backdrop-blur-sm">
+          <div data-reveal="left" className="testimonial-owner reveal-delay-2 w-fit rounded-lg bg-white p-2.5 pr-5 shadow-xl">
             <div className="flex items-center gap-3">
               <span className="flex size-11 items-center justify-center overflow-hidden rounded-md bg-[linear-gradient(145deg,#d9f3ec,#72bea9)] text-[#005343]">
                 <svg viewBox="0 0 32 32" fill="none" aria-hidden="true" className="size-8">
@@ -50,8 +50,8 @@ export function CustomerTestimonial() {
                 </svg>
               </span>
               <span>
-                <span className="block text-sm font-medium text-white">Café / Restaurant Owner</span>
-                <span className="mt-0.5 block text-[12px] text-[#54d8bd]">Aussie&apos;s POS customer</span>
+                <span className="block text-sm font-medium text-zinc-900">Café / Restaurant Owner</span>
+                <span className="mt-0.5 block text-[12px] text-[#008F74]">Aussie&apos;s POS customer</span>
               </span>
             </div>
           </div>

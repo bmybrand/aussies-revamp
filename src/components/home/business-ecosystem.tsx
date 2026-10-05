@@ -8,37 +8,22 @@ type LayerIconProps = {
   type: "payments" | "software" | "hardware" | "apps";
 };
 
+const layerIconPaths: Record<LayerIconProps["type"], string> = {
+  payments: "/Vector.svg",
+  software: "/Vector-1.svg",
+  hardware: "/Vector-2.svg",
+  apps: "/Vector-3.svg",
+};
+
 function LayerIcon({ type }: LayerIconProps) {
-  if (type === "payments") {
-    return (
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="size-5">
-        <rect x="2.5" y="5" width="19" height="14" rx="1.5" stroke="currentColor" strokeWidth="1.5" />
-        <path d="M6 10h9M6 14h5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      </svg>
-    );
-  }
-
-  if (type === "software") {
-    return (
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="size-5">
-        <path d="M4 19V9m4 10V5m4 14V8m4 11V3m4 16V11M2 20.5h20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      </svg>
-    );
-  }
-
-  if (type === "hardware") {
-    return (
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="size-5">
-        <rect x="5" y="2.5" width="14" height="19" rx="1.8" stroke="currentColor" strokeWidth="1.5" />
-        <path d="M8 6h8M8 10h2m2 0h2m2 0h.1M8 13.5h2m2 0h2m2 0h.1M8 17h2m2 0h2m2 0h.1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      </svg>
-    );
-  }
-
   return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="size-5">
-      <path d="M9.2 3.2a2.8 2.8 0 1 0 5.6 0v3.1h3.1a2.8 2.8 0 1 1 0 5.6h-3.1V15a2.8 2.8 0 1 1-5.6 0v-3.1H6.1a2.8 2.8 0 1 1 0-5.6h3.1V3.2Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-    </svg>
+    <Image
+      src={layerIconPaths[type]}
+      alt=""
+      width={26}
+      height={26}
+      className="h-5 w-6 shrink-0 object-contain"
+    />
   );
 }
 
@@ -176,8 +161,8 @@ export function BusinessEcosystem() {
         className="relative isolate flex min-h-[max(720px,100svh)] items-center overflow-hidden bg-[#fdfdfc] text-zinc-950"
       >
         <div className="relative h-[1320px] w-full sm:h-[1120px] lg:h-[720px] lg:-translate-y-[72px]">
-        <div data-reveal className="relative z-10 mx-auto max-w-[1100px] px-6 pt-20 text-center sm:px-10 sm:pt-24">
-          <h2 id="business-ecosystem-title" className="text-[clamp(2.2rem,3.25vw,3.45rem)] font-semibold leading-[1.1] tracking-[-0.04em] text-balance">
+        <div data-reveal className="relative z-10 mx-auto max-w-[1400px] px-6 pt-20 text-center sm:px-10 sm:pt-24">
+          <h2 id="business-ecosystem-title" className="text-[clamp(2.2rem,3.25vw,3.45rem)] font-semibold leading-[1.1] tracking-[-0.04em] text-balance lg:whitespace-nowrap">
             Everything You Need To Run Your Business
           </h2>
           <p className="mx-auto mt-5 max-w-[760px] text-sm leading-6 text-zinc-500 sm:text-base">
