@@ -1,22 +1,24 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { BrandLogo } from "./brand-logo";
 
 const navItems = [
-  { label: "Home", href: "#home" },
-  { label: "POS Systems", href: "#pos-systems" },
-  { label: "Industries", href: "#industries" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "About Us", href: "#about" },
-  { label: "Support", href: "#support" },
+  { label: "Home", href: "/" },
+  { label: "POS Systems", href: "/products" },
+  { label: "Industries", href: "/industries" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "About Us", href: "/about" },
+  { label: "Support", href: "/support" },
 ];
 
 const navigationLinkClasses =
   "relative py-2 text-base font-normal transition-colors hover:text-[#008F74] after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-[#008F74] after:transition-transform hover:after:scale-x-100";
 
 export function Navbar() {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const lastScrollY = useRef(0);
@@ -98,12 +100,12 @@ export function Navbar() {
         </div>
 
         <nav aria-label="Main navigation" className="hidden items-center gap-[30px] xl:flex xl:gap-9">
-          {navItems.map((item, index) => (
+          {navItems.map((item) => (
             <Link
               key={item.label}
               href={item.href}
               className={`${navigationLinkClasses} ${
-                index === 0
+                pathname === item.href
                   ? "text-[#008F74] after:scale-x-100"
                   : isScrolled
                     ? "text-zinc-700"
@@ -116,7 +118,7 @@ export function Navbar() {
         </nav>
 
         <Link
-          href="#quote"
+          href="/contact"
           className={`hidden items-center justify-center rounded-[9px] px-6 text-[17px] font-medium shadow-sm transition-[height,min-width,background-color,color] duration-500 md:inline-flex ${
             isScrolled
               ? "h-10 min-w-[210px] bg-[#008F74] text-white ring-1 ring-[#008F74] hover:bg-white hover:text-zinc-950 hover:ring-zinc-200"
@@ -145,14 +147,16 @@ export function Navbar() {
           }`}>
             {navItems.map((item) => (
               <Link key={item.label} href={item.href} className={`rounded-xl px-4 py-3 text-lg font-normal hover:text-[#008F74] ${
-                isScrolled
+                pathname === item.href
+                  ? "bg-[#008F74]/10 text-[#008F74]"
+                  : isScrolled
                   ? "text-zinc-700 hover:bg-zinc-100"
                   : "text-white/90 hover:bg-white/10"
               }`}>
                 {item.label}
               </Link>
             ))}
-            <Link href="#quote" className="mt-2 rounded-xl bg-[#008F74] px-4 py-3 text-center text-[19px] font-medium text-white hover:bg-[#005343]">
+            <Link href="/contact" className="mt-2 rounded-xl bg-[#008F74] px-4 py-3 text-center text-[19px] font-medium text-white hover:bg-[#005343]">
               Get A Free POS Quote
             </Link>
           </nav>

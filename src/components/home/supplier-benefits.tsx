@@ -8,54 +8,54 @@ const supplierBenefits = [
   {
     label: "Flexible Options",
     description: "Choose how you purchase your equipment.",
-    image: "/supplier/flexible-solutions.png",
+    image: "/Gradient.png",
     alt: "Smartphone POS application used with a contactless payment terminal",
   },
   {
     label: "Business-Focused Advice",
     description:
       "We recommend solutions based on your workflow, not just hardware specifications.",
-    image: "/supplier/australian-support.png",
+    image: "/Gradient-1.png",
     alt: "Retail specialist helping an Australian small-business owner",
   },
   {
     label: "Complete Solutions",
     description:
       "Hardware, payment processing, and setup support from one place.",
-    image: "/supplier/complete-solutions.png",
+    image: "/Gradient-2.png",
     alt: "Complete point-of-sale hardware system on a cafe counter",
   },
   {
     label: "Simple Buying Process",
     description: "Clear options without confusing technical details.",
-    image: "/supplier/ongoing-support.png",
+    image: "/Gradient-3.png",
     alt: "Cafe owner reviewing business information on a tablet",
   },
   {
     label: "Ongoing Assistance",
     description: "Support beyond your initial purchase.",
-    image: "/supplier/team-training.png",
+    image: "/Gradient-4.png",
     alt: "Hospitality team receiving hands-on point-of-sale training",
   },
   {
     label: "Transparent Pricing",
     description:
       "Understand your equipment, processing, and ongoing costs before you make a decision.",
-    image: "/supplier/business-insights.png",
+    image: "/Gradient-5.png",
     alt: "Cafe manager reviewing business analytics on a tablet",
   },
   {
     label: "Solutions That Scale",
     description:
       "Choose a POS setup that can grow with your business as your needs change.",
-    image: "/supplier/connected-hardware.png",
+    image: "/Gradient-6.png",
     alt: "Integrated point-of-sale hardware at a modern retail checkout",
   },
   {
     label: "One Point of Contact",
     description:
       "Get help navigating hardware, payment options, and your POS setup without dealing with multiple providers.",
-    image: "/supplier/business-growth.png",
+    image: "/Gradient-7.png",
     alt: "Restaurant owner standing confidently in a busy venue",
   },
 ];

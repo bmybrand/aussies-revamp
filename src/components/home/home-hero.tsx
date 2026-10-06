@@ -135,14 +135,14 @@ export function HomeHero({
             key={`content-${activeIndex}`}
             className="hero-slide-content flex w-full flex-col gap-10 lg:flex-row lg:items-end lg:justify-between"
           >
-            <div className="max-w-4xl">
+            <div className="min-w-0 flex-1 lg:max-w-[1020px]">
               <EyebrowLabel className="mb-5 text-white/95">
                 {activeSlide.eyebrow}
               </EyebrowLabel>
 
               <h1
                 id="home-hero-heading"
-                className="max-w-[1020px] font-sans text-[clamp(2.45rem,3vw,3.2rem)] font-semibold leading-[1.32] tracking-[-0.035em] text-balance"
+                className="font-sans text-[clamp(2.45rem,3vw,3.2rem)] font-semibold leading-[1.32] tracking-[-0.035em]"
               >
                 {activeSlide.title}
               </h1>

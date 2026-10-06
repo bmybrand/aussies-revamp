@@ -5,35 +5,35 @@ const businessLinks = [
   {
     label: "Food & Beverage",
     description: "Cafés, restaurants, takeaways & hospitality",
-    href: "#industries",
+    href: "/restaurants",
   },
   {
     label: "Retail",
     description: "Shops, boutiques & specialty stores",
-    href: "#industries",
+    href: "/retail",
   },
   {
     label: "Services",
     description: "Salons, professional & service businesses",
-    href: "#industries",
+    href: "/services",
   },
 ];
 
 const exploreLinks = [
-  { label: "POS Systems", href: "#pos-systems" },
-  { label: "Hardware", href: "#pos-systems" },
-  { label: "Payment Options", href: "#business-ecosystem" },
-  { label: "Buy, Lease & Rent", href: "#pos-systems" },
-  { label: "Business Tools", href: "#pos-systems" },
-  { label: "FAQs", href: "#support" },
+  { label: "POS Systems", href: "/products" },
+  { label: "Hardware", href: "/hardware" },
+  { label: "Payment Options", href: "/payment-options" },
+  { label: "Buy, Lease & Rent", href: "/pricing" },
+  { label: "Business Tools", href: "/business-tools" },
+  { label: "FAQs", href: "/support#faq" },
 ];
 
 const contactLinks = [
-  { label: "Get a POS Quote", href: "#quote" },
-  { label: "Find Your POS Setup", href: "#industries" },
-  { label: "Contact Sales", href: "#quote" },
-  { label: "Request a Demonstration", href: "#quote" },
-  { label: "Support", href: "#support" },
+  { label: "Get a POS Quote", href: "/contact#request-a-quote" },
+  { label: "Find Your POS Setup", href: "/industries" },
+  { label: "Contact Sales", href: "/contact" },
+  { label: "Request a Demonstration", href: "/contact#book-a-demonstration" },
+  { label: "Support", href: "/support" },
 ];
 
 const socialLinks = [
@@ -76,7 +76,7 @@ export function Footer() {
       <div className="px-6 sm:px-10 lg:px-[clamp(5rem,8vw,10rem)]">
         <div className="grid gap-12 py-14 sm:py-16 lg:grid-cols-[1.35fr_1.1fr_0.65fr_0.7fr] lg:gap-20 lg:py-16">
           <div className="max-w-[330px]">
-            <Link href="#home" aria-label="Aussie's POS Solution home" className="inline-flex">
+            <Link href="/" aria-label="Aussie's POS Solution home" className="inline-flex">
               <Image
                 src="/aussies-logo-scrolled-text-black.png"
                 alt="Aussie's POS Solution"
@@ -132,11 +132,11 @@ export function Footer() {
           <p className="text-[14px] text-zinc-500">Payments, hardware and support – connected.</p>
 
           <nav aria-label="Footer policies" className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[13px] text-zinc-500">
-            <Link href="#contact" className="hover:text-[#008F74]">Privacy Policy</Link>
+            <Link href="/privacy-policy" className="hover:text-[#008F74]">Privacy Policy</Link>
             <span aria-hidden="true">|</span>
-            <Link href="#contact" className="hover:text-[#008F74]">Terms &amp; Conditions</Link>
+            <Link href="/terms" className="hover:text-[#008F74]">Terms &amp; Conditions</Link>
             <span aria-hidden="true">|</span>
-            <Link href="#contact" className="hover:text-[#008F74]">Cookie Policy</Link>
+            <Link href="/cookie-policy" className="hover:text-[#008F74]">Cookie Policy</Link>
           </nav>
 
           <div className="flex items-center gap-2 sm:justify-end" aria-label="Social media links">
