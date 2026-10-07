@@ -66,7 +66,6 @@ function SignatureSection({ variant }: { variant: SolutionVariant }) {
   if (variant === "products") return (
     <RevealBlock className="signature-section signature-products">
       <div className="product-stage-copy"><p className="eyebrow eyebrow--light">Build your setup</p><h2>One platform. Different forms.</h2><p>Choose devices by role, location, and transaction style—then connect them into one operating view.</p></div>
-      <div className="device-lineup" aria-label="Aussie's device family"><div className="device-shape device-shape--go"><i /></div><div className="device-shape device-shape--flex"><i /></div><div className="device-shape device-shape--mini"><i /></div><div className="device-shape device-shape--duo"><i /><b /></div></div>
     </RevealBlock>
   );
   return (
