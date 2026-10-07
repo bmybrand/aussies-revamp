@@ -46,8 +46,7 @@ const showcaseCategories: ShowcaseCategory[] = [
       {
         name: "Flex",
         description: "Take orders and payments wherever service happens.",
-        image: "/showcase/restaurant-pos.png",
-        imageAlt: "Flexible point-of-sale system in a modern restaurant",
+        video: "/6005605_Hotel_Entrance_1920x1080.mp4",
       },
       {
         name: "Station Duo",
