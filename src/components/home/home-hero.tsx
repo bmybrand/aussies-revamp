@@ -15,6 +15,15 @@ const heroSlides = [
     eyebrow: "POS for Australian businesses",
     title:
       "From Payment To POS Hardware, Aussie's POS Solution Helps Businesses",
+    titleLines: [
+      "From Payment To POS Hardware,",
+      "Aussie's POS Solution Helps",
+      "Businesses",
+    ],
+    wideTitleLines: [
+      "From Payment To POS Hardware,",
+      "Aussie's POS Solution Helps Businesses",
+    ],
     media: {
       type: "video" as const,
       src: "/Header (2).mp4",
@@ -29,6 +38,15 @@ const heroSlides = [
     category: "Retail",
     eyebrow: "POS systems built for modern retail",
     title: "Powerful POS Solutions Built To Keep Australian Retail Moving",
+    titleLines: [
+      "Powerful POS Solutions",
+      "Built To Keep Australian",
+      "Retail Moving",
+    ],
+    wideTitleLines: [
+      "Powerful POS Solutions Built To",
+      "Keep Australian Retail Moving",
+    ],
     media: {
       type: "video" as const,
       src: "/videos/retail/header (2).mp4",
@@ -40,6 +58,15 @@ const heroSlides = [
     category: "Services",
     eyebrow: "Flexible POS for service businesses",
     title: "Simple Payments And Smarter POS For Every Service Business",
+    titleLines: [
+      "Simple Payments And",
+      "Smarter POS For Every",
+      "Service Business",
+    ],
+    wideTitleLines: [
+      "Simple Payments And Smarter POS",
+      "For Every Service Business",
+    ],
     media: {
       type: "video" as const,
       src: "/videos/services/header.mp4",
@@ -104,7 +131,7 @@ export function HomeHero({
         aria-labelledby="home-hero-heading"
         className="relative isolate bg-[#101010] text-white"
       >
-        <div className="relative isolate flex min-h-[calc(100svh+72px)] overflow-hidden bg-zinc-600">
+        <div className="relative isolate flex min-h-[calc(max(640px,100svh)+72px)] overflow-hidden bg-zinc-600 lg:min-h-[calc(100svh+72px)]">
         <div aria-hidden="true" className="absolute inset-0 -z-30 bg-zinc-600" />
 
         <div key={activeSlide.category} className="hero-slide-enter absolute inset-0 -z-20">
@@ -131,27 +158,41 @@ export function HomeHero({
           className="absolute inset-x-0 bottom-0 -z-10 h-60 bg-[linear-gradient(to_bottom,transparent,rgba(0,0,0,0.88))]"
         />
 
-        <div className="mx-auto flex h-svh w-[calc(100%-2rem)] shrink-0 items-end pb-16 pt-40 sm:w-[calc(100%-3rem)] sm:pb-20 lg:w-[calc(100%-clamp(10rem,16vw,20rem))] lg:pb-[66px]">
+        <div className="mx-auto flex h-[max(640px,100svh)] w-[calc(100%-1rem)] shrink-0 items-end pb-8 pt-28 min-[360px]:w-[calc(100%-2rem)] min-[360px]:pb-12 min-[360px]:pt-32 sm:w-[calc(100%-3rem)] sm:pb-20 sm:pt-40 lg:h-svh lg:w-[calc(100%-clamp(10rem,16vw,20rem))] lg:pb-[66px]">
           <div
             key={`content-${activeIndex}`}
-            className="hero-slide-content flex w-full flex-col gap-10 lg:flex-row lg:items-end lg:justify-between"
+            className="hero-slide-content flex w-full flex-col gap-6 sm:gap-10 lg:flex-row lg:items-end lg:justify-between"
           >
             <div className="min-w-0 flex-1 lg:max-w-[1020px]">
-              <EyebrowLabel className="mb-5 text-white/95">
+              <EyebrowLabel className="mb-4 text-[10px] text-white/95 min-[360px]:text-xs sm:mb-5 sm:text-base">
                 {activeSlide.eyebrow}
               </EyebrowLabel>
 
               <h1
                 id="home-hero-heading"
-                className="font-sans text-[clamp(2.45rem,3vw,3.2rem)] font-semibold leading-[1.32] tracking-[-0.035em]"
+                className="font-sans text-[clamp(1.85rem,9vw,2.5rem)] font-semibold leading-[1.16] tracking-[-0.035em] sm:text-[clamp(2.3rem,3vw,3rem)] sm:leading-[1.32] lg:text-[clamp(2.25rem,2.7vw,3rem)]"
               >
-                {activeSlide.title}
+                <span className="lg:hidden">{activeSlide.title}</span>
+                <span className="hidden lg:block 2xl:hidden">
+                  {activeSlide.titleLines.map((line) => (
+                    <span key={line} className="block">
+                      {line}
+                    </span>
+                  ))}
+                </span>
+                <span className="hidden 2xl:block">
+                  {activeSlide.wideTitleLines.map((line) => (
+                    <span key={line} className="block">
+                      {line}
+                    </span>
+                  ))}
+                </span>
               </h1>
             </div>
 
             <div
               id="quote"
-              className="flex shrink-0 flex-col gap-3 font-sans sm:flex-row lg:pb-1"
+              className="flex shrink-0 flex-col gap-3 font-sans sm:flex-row sm:gap-5 lg:pb-1"
             >
               <AnimatedCta
                 href={activeSlide.primaryCta.href}
@@ -169,14 +210,14 @@ export function HomeHero({
           </div>
         </div>
 
-        <div className="absolute inset-x-0 top-[calc(100svh-2px)] z-10">
+        <div className="absolute inset-x-0 top-[calc(max(640px,100svh)-2px)] z-10 lg:top-[calc(100svh-2px)]">
           <HeroProgress
             key={`${activeIndex}-${timerKey}`}
             activeIndex={activeIndex}
             paused={timerPaused}
           />
         </div>
-        <div className="absolute inset-x-0 top-[100svh] z-10">
+        <div className="absolute inset-x-0 top-[max(640px,100svh)] z-10 lg:top-[100svh]">
           <HeroSegmentNavigation
             activeIndex={activeIndex}
             onSelect={onSelect}

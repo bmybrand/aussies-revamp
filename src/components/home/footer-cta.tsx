@@ -23,7 +23,7 @@ export function FooterCta() {
               Whether you&apos;re starting a new business, upgrading your current system, or expanding locations, Aussie&apos;s POS Solution can help you find the right equipment and payment setup.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap gap-4 sm:gap-5">
               <AnimatedCta
                 href="#contact"
                 icon="quote"

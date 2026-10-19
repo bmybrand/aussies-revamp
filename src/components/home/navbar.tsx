@@ -86,14 +86,14 @@ export function Navbar() {
       } ${
         isScrolled
           ? "px-0 pt-0"
-          : "px-5 pt-4 sm:px-8 sm:pt-6 lg:px-[3.1vw]"
+          : "px-2 pt-2 min-[360px]:px-3 min-[360px]:pt-3 sm:px-8 sm:pt-6 lg:px-[3.1vw]"
       }`}
     >
       <div
-        className={`mx-auto flex w-full items-center justify-between border px-5 shadow-2xl shadow-black/20 backdrop-blur-xl transition-[height,border-radius,background-color,border-color,padding] duration-500 ease-out sm:px-7 ${
+        className={`mx-auto flex w-full items-center justify-between border px-3 shadow-2xl shadow-black/20 backdrop-blur-xl transition-[height,border-radius,background-color,border-color,padding] duration-500 ease-out sm:px-7 ${
           isScrolled
-            ? "h-20 rounded-none border-x-0 border-t-0 border-zinc-200/90 bg-white/95 shadow-[0_12px_35px_rgba(0,70,58,0.12)] lg:px-[3.1vw]"
-            : "h-24 rounded-3xl border-white/5 bg-white/[0.15]"
+            ? "h-16 rounded-none border-x-0 border-t-0 border-zinc-200/90 bg-white/95 shadow-[0_12px_35px_rgba(0,70,58,0.12)] sm:h-20 lg:px-[3.1vw]"
+            : "h-[72px] rounded-2xl border-white/5 bg-white/[0.15] sm:h-24 sm:rounded-3xl"
         }`}
       >
         <div className={`origin-left transition-transform duration-500 ease-out ${isScrolled ? "scale-[0.82]" : "scale-100"}`}>
@@ -123,13 +123,13 @@ export function Navbar() {
           icon="quote"
           tone={isScrolled ? "light" : "dark"}
           compact
-          className={`hidden min-w-[210px] md:inline-flex ${isScrolled ? "h-10" : "h-[46px] min-w-[230px]"}`}
+          className={`hidden min-w-[210px] xl:inline-flex ${isScrolled ? "h-10" : "h-[46px] min-w-[230px]"}`}
         >
           Get A Free POS Quote
         </AnimatedCta>
 
         <details className="group relative xl:hidden">
-          <summary className={`flex size-10 cursor-pointer list-none items-center justify-center rounded-xl border transition-colors [&::-webkit-details-marker]:hidden ${
+          <summary className={`flex size-9 cursor-pointer list-none items-center justify-center rounded-xl border transition-colors sm:size-10 [&::-webkit-details-marker]:hidden ${
             isScrolled
               ? "border-zinc-300 text-zinc-800 hover:bg-zinc-100"
               : "border-white/20 text-white hover:bg-white/10"
@@ -140,13 +140,13 @@ export function Navbar() {
             </svg>
           </summary>
 
-          <nav className={`absolute right-0 top-14 flex w-64 flex-col rounded-2xl border p-3 shadow-2xl backdrop-blur-xl ${
+          <nav className={`absolute right-0 top-12 flex max-h-[calc(100svh-5rem)] w-[min(16rem,calc(100vw-1rem))] flex-col overflow-y-auto rounded-2xl border p-2 shadow-2xl backdrop-blur-xl sm:top-14 sm:p-3 ${
             isScrolled
               ? "border-zinc-200 bg-white/95"
               : "border-white/10 bg-zinc-950/95"
           }`}>
             {navItems.map((item) => (
-              <Link key={item.label} href={item.href} className={`rounded-xl px-4 py-3 text-lg font-normal hover:text-[#008F74] ${
+              <Link key={item.label} href={item.href} className={`rounded-xl px-3 py-2.5 text-sm font-normal hover:text-[#008F74] sm:px-4 sm:py-3 sm:text-lg ${
                 pathname === item.href
                   ? "bg-[#008F74]/10 text-[#00C09C]"
                   : isScrolled

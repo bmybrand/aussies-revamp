@@ -10,7 +10,7 @@ export function BrandLogo({ isScrolled = false }: BrandLogoProps) {
     <Link
       href="/"
       aria-label="Aussie's POS Solutions home"
-      className="relative inline-flex h-9 w-[171px] shrink-0 items-center sm:h-[50px] sm:w-[237px]"
+      className="relative inline-flex h-7 w-[120px] shrink-0 items-center min-[360px]:h-8 min-[360px]:w-[152px] sm:h-[50px] sm:w-[237px]"
     >
       <Image
         src="/aussies-logo.png"
@@ -20,7 +20,7 @@ export function BrandLogo({ isScrolled = false }: BrandLogoProps) {
         className={`absolute inset-0 size-full object-contain object-left transition-opacity duration-500 ease-out ${
           isScrolled ? "opacity-0" : "opacity-100"
         }`}
-        sizes="(min-width: 640px) 237px, 171px"
+        sizes="(min-width: 640px) 237px, (min-width: 360px) 152px, 120px"
         preload
       />
       <Image
@@ -31,7 +31,7 @@ export function BrandLogo({ isScrolled = false }: BrandLogoProps) {
         className={`absolute inset-0 size-full object-contain object-left transition-opacity duration-500 ease-out ${
           isScrolled ? "opacity-100" : "opacity-0"
         }`}
-        sizes="(min-width: 640px) 237px, 171px"
+        sizes="(min-width: 640px) 237px, (min-width: 360px) 152px, 120px"
       />
     </Link>
   );

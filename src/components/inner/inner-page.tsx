@@ -173,7 +173,7 @@ export function InnerPage({ data }: { data: InnerPageData }) {
           <p className="mb-5 text-sm font-semibold uppercase tracking-[0.15em] text-[#62dec3]">{data.eyebrow}</p>
           <h1 className="max-w-[1220px] text-[clamp(3.05rem,5.15vw,5.8rem)] font-semibold leading-[0.96] tracking-[-0.055em] lg:text-balance">{data.title}</h1>
           <p className="mt-7 max-w-[700px] text-[17px] leading-7 text-white/82 sm:text-lg">{data.description}</p>
-          <div className="mt-9 flex flex-wrap gap-3">
+          <div className="mt-9 flex flex-wrap gap-4 sm:gap-5">
             <AnimatedCta href="/contact" icon="contact" compact>
               Talk To Our Team
             </AnimatedCta>
