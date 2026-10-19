@@ -83,6 +83,11 @@ html {
   box-shadow: 0 8px 24px rgb(0 83 67 / 8%);
 }
 
+.animated-cta--fill-white {
+  --cta-fill: #fff;
+  --cta-hover-color: #005343;
+}
+
 .animated-cta--compact {
   min-height: 52px;
   padding-inline: 32px;

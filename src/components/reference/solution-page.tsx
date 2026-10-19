@@ -97,7 +97,7 @@ function Faq({ data }: { data: SolutionPageData }) {
 }
 
 function FinalCta({ data }: { data: SolutionPageData }) {
-  return <RevealBlock className="detail-final-cta"><div><p className="eyebrow eyebrow--light">Ready when you are</p><h2>{data.finalTitle}</h2><p>{data.finalText}</p></div><ArrowLink href="/#contact" icon="contact" tone="dark">Contact sales</ArrowLink></RevealBlock>;
+  return <RevealBlock className="detail-final-cta"><div><p className="eyebrow eyebrow--light">Ready when you are</p><h2>{data.finalTitle}</h2><p>{data.finalText}</p></div><ArrowLink href="/#contact" icon="contact" fill="white" tone="dark">Contact sales</ArrowLink></RevealBlock>;
 }
 
 function OrderedSections({ data }: { data: SolutionPageData }) {

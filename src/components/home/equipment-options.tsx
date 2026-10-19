@@ -52,6 +52,7 @@ export function EquipmentOptions() {
               <AnimatedCta
                 href="#quote"
                 icon="compare"
+                fill="white"
               >
                 Compare POS Options
               </AnimatedCta>

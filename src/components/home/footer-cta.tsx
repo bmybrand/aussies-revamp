@@ -27,6 +27,7 @@ export function FooterCta() {
               <AnimatedCta
                 href="#contact"
                 icon="quote"
+                fill="white"
                 compact
               >
                 Get Your Free Quote
@@ -34,6 +35,7 @@ export function FooterCta() {
               <AnimatedCta
                 href="#contact"
                 icon="contact"
+                fill="white"
                 compact
               >
                 Speak With A POS Specialist

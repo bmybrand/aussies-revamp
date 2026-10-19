@@ -15,6 +15,7 @@ type AnimatedCtaProps = {
   icon?: CtaIcon;
   tone?: "dark" | "light";
   compact?: boolean;
+  fill?: "green" | "white";
   className?: string;
 };
 
@@ -105,12 +106,13 @@ export function AnimatedCta({
   icon = "arrow",
   tone = "dark",
   compact = false,
+  fill = "green",
   className = "",
 }: AnimatedCtaProps) {
   return (
     <Link
       href={href}
-      className={`animated-cta animated-cta--${tone}${compact ? " animated-cta--compact" : ""}${className ? ` ${className}` : ""}`}
+      className={`animated-cta animated-cta--${tone} animated-cta--fill-${fill}${compact ? " animated-cta--compact" : ""}${className ? ` ${className}` : ""}`}
     >
       <span className="animated-cta__fill" aria-hidden="true" />
       <span className="animated-cta__content">

@@ -10,6 +10,7 @@ type ArrowLinkProps = {
   dark?: boolean;
   href?: string;
   icon?: CtaIcon;
+  fill?: "green" | "white";
   tone?: "dark" | "light";
 };
 
@@ -19,12 +20,14 @@ export function ArrowLink({
   dark = false,
   href = "#contact",
   icon = "arrow",
+  fill = "green",
   tone,
 }: ArrowLinkProps) {
   return (
     <AnimatedCta
       href={href}
       icon={icon}
+      fill={fill}
       tone={tone ?? (dark ? "dark" : "light")}
       className={`detail-cta${className ? ` ${className}` : ""}`}
     >
