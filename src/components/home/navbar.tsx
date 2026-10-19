@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { AnimatedCta } from "@/components/animated-cta";
 import { BrandLogo } from "./brand-logo";
 
 const navItems = [
@@ -15,7 +16,7 @@ const navItems = [
 ];
 
 const navigationLinkClasses =
-  "relative py-2 text-base font-normal transition-colors hover:text-[#008F74] after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-[#008F74] after:transition-transform hover:after:scale-x-100";
+  "relative py-2 text-base font-normal transition-colors hover:text-[#00C09C] after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-[#008F74] after:transition-transform hover:after:scale-x-100";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -106,7 +107,7 @@ export function Navbar() {
               href={item.href}
               className={`${navigationLinkClasses} ${
                 pathname === item.href
-                  ? "text-[#008F74] after:scale-x-100"
+                  ? "text-[#00C09C] after:scale-x-100"
                   : isScrolled
                     ? "text-zinc-700"
                     : "text-white/90"
@@ -117,16 +118,15 @@ export function Navbar() {
           ))}
         </nav>
 
-        <Link
+        <AnimatedCta
           href="/contact"
-          className={`hidden items-center justify-center rounded-[9px] px-6 text-[17px] font-medium shadow-sm transition-[height,min-width,background-color,color] duration-500 md:inline-flex ${
-            isScrolled
-              ? "h-10 min-w-[210px] bg-[#008F74] text-white ring-1 ring-[#008F74] hover:bg-white hover:text-zinc-950 hover:ring-zinc-200"
-              : "h-[46px] min-w-[230px] bg-white text-zinc-950 hover:bg-[#008F74] hover:text-white"
-          }`}
+          icon="quote"
+          tone={isScrolled ? "light" : "dark"}
+          compact
+          className={`hidden min-w-[210px] md:inline-flex ${isScrolled ? "h-10" : "h-[46px] min-w-[230px]"}`}
         >
           Get A Free POS Quote
-        </Link>
+        </AnimatedCta>
 
         <details className="group relative xl:hidden">
           <summary className={`flex size-10 cursor-pointer list-none items-center justify-center rounded-xl border transition-colors [&::-webkit-details-marker]:hidden ${
@@ -148,7 +148,7 @@ export function Navbar() {
             {navItems.map((item) => (
               <Link key={item.label} href={item.href} className={`rounded-xl px-4 py-3 text-lg font-normal hover:text-[#008F74] ${
                 pathname === item.href
-                  ? "bg-[#008F74]/10 text-[#008F74]"
+                  ? "bg-[#008F74]/10 text-[#00C09C]"
                   : isScrolled
                   ? "text-zinc-700 hover:bg-zinc-100"
                   : "text-white/90 hover:bg-white/10"
@@ -156,9 +156,9 @@ export function Navbar() {
                 {item.label}
               </Link>
             ))}
-            <Link href="/contact" className="mt-2 rounded-xl bg-[#008F74] px-4 py-3 text-center text-[19px] font-medium text-white hover:bg-[#005343]">
+            <AnimatedCta href="/contact" icon="quote" tone={isScrolled ? "light" : "dark"} compact className="mt-2 w-full">
               Get A Free POS Quote
-            </Link>
+            </AnimatedCta>
           </nav>
         </details>
       </div>

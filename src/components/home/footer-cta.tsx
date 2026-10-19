@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import { AnimatedCta } from "@/components/animated-cta";
 import { InViewReveal } from "./in-view-reveal";
 
 export function FooterCta() {
@@ -24,18 +24,20 @@ export function FooterCta() {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link
+              <AnimatedCta
                 href="#contact"
-                className="inline-flex min-h-12 items-center justify-center rounded-lg bg-white px-6 text-[15px] font-semibold text-[#007d69] shadow-sm transition-colors hover:bg-[#005343] hover:text-white"
+                icon="quote"
+                compact
               >
                 Get Your Free Quote
-              </Link>
-              <Link
+              </AnimatedCta>
+              <AnimatedCta
                 href="#contact"
-                className="inline-flex min-h-12 items-center justify-center rounded-lg border border-white/85 bg-transparent px-6 text-[15px] font-medium text-white transition-colors hover:bg-white hover:text-[#007d69]"
+                icon="contact"
+                compact
               >
                 Speak With A POS Specialist
-              </Link>
+              </AnimatedCta>
             </div>
           </div>
 

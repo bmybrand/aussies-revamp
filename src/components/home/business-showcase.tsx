@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { HydrationSafeVideo } from "@/components/hydration-safe-video";
 import { InViewReveal } from "./in-view-reveal";
 
 const productImages: Record<string, string> = {
@@ -187,7 +188,7 @@ function SmoothLoopVideo({ src }: { src: string }) {
   }, [src]);
 
   return (
-    <video
+    <HydrationSafeVideo
       ref={videoRef}
       aria-hidden="true"
       autoPlay
@@ -199,7 +200,7 @@ function SmoothLoopVideo({ src }: { src: string }) {
     >
       <source src={src} type="video/mp4" />
       Your browser does not support the video tag.
-    </video>
+    </HydrationSafeVideo>
   );
 }
 

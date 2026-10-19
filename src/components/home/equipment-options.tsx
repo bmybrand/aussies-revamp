@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import { AnimatedCta } from "@/components/animated-cta";
 import { manrope } from "./eyebrow-label";
 import { InViewReveal } from "./in-view-reveal";
 
@@ -49,12 +49,12 @@ export function EquipmentOptions() {
             </div>
 
             <div className="relative z-10 w-fit shrink-0">
-              <Link
+              <AnimatedCta
                 href="#quote"
-                className="inline-flex min-h-[53px] w-fit items-center justify-center rounded-lg bg-white px-6 text-base font-medium text-[#008F74] shadow-lg shadow-black/10 transition-colors duration-500 hover:bg-[#008F74] hover:text-white"
+                icon="compare"
               >
                 Compare POS Options
-              </Link>
+              </AnimatedCta>
             </div>
           </div>
 

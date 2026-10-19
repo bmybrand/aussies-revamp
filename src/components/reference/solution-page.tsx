@@ -81,7 +81,7 @@ function Features({ data }: { data: SolutionPageData }) {
 }
 
 function Journey({ data }: { data: SolutionPageData }) {
-  return <RevealBlock className="detail-journey"><div className="detail-journey__image"><Image src={data.journey.image} alt={data.journey.imageAlt} fill sizes="(max-width: 900px) 100vw, 50vw" /></div><div className="detail-journey__copy"><p className="eyebrow">{data.journey.eyebrow}</p><h2>{data.journey.title}</h2><p>{data.journey.text}</p><ul>{data.journey.points.map((point) => <li key={point}><span>✓</span>{point}</li>)}</ul><ArrowLink href="/#contact">Build your solution</ArrowLink></div></RevealBlock>;
+  return <RevealBlock className="detail-journey"><div className="detail-journey__image"><Image src={data.journey.image} alt={data.journey.imageAlt} fill sizes="(max-width: 900px) 100vw, 50vw" /></div><div className="detail-journey__copy"><p className="eyebrow">{data.journey.eyebrow}</p><h2>{data.journey.title}</h2><p>{data.journey.text}</p><ul>{data.journey.points.map((point) => <li key={point}><span>✓</span>{point}</li>)}</ul><ArrowLink href="/#contact" icon="build" tone="light">Build your solution</ArrowLink></div></RevealBlock>;
 }
 
 function Capabilities({ data }: { data: SolutionPageData }) {
@@ -97,7 +97,7 @@ function Faq({ data }: { data: SolutionPageData }) {
 }
 
 function FinalCta({ data }: { data: SolutionPageData }) {
-  return <RevealBlock className="detail-final-cta"><div><p className="eyebrow eyebrow--light">Ready when you are</p><h2>{data.finalTitle}</h2><p>{data.finalText}</p></div><ArrowLink href="/#contact">Contact sales</ArrowLink></RevealBlock>;
+  return <RevealBlock className="detail-final-cta"><div><p className="eyebrow eyebrow--light">Ready when you are</p><h2>{data.finalTitle}</h2><p>{data.finalText}</p></div><ArrowLink href="/#contact" icon="contact" tone="dark">Contact sales</ArrowLink></RevealBlock>;
 }
 
 function OrderedSections({ data }: { data: SolutionPageData }) {
@@ -116,7 +116,7 @@ export function SolutionPage({ data }: { data: SolutionPageData }) {
   return (
     <main className={`home-page detail-page detail-page--${data.variant}`}>
       <Navbar />
-      <section className="detail-hero" id="top"><Image className="detail-hero__image" src={data.heroImage} alt={data.heroAlt} fill priority sizes="100vw" /><div className="detail-hero__shade" /><div className="detail-hero__content"><p className="detail-kicker">{data.eyebrow}</p><h1>{data.title}</h1><p>{data.description}</p><div className="detail-hero__actions"><ArrowLink href="/#contact">Talk to our team</ArrowLink><ArrowLink dark href="/products">Explore products</ArrowLink></div></div></section>
+      <section className="detail-hero" id="top"><Image className="detail-hero__image" src={data.heroImage} alt={data.heroAlt} fill priority sizes="100vw" /><div className="detail-hero__shade" /><div className="detail-hero__content"><p className="detail-kicker">{data.eyebrow}</p><h1>{data.title}</h1><p>{data.description}</p><div className="detail-hero__actions"><ArrowLink href="/#contact" icon="contact" tone="dark">Talk to our team</ArrowLink><ArrowLink href="/products" icon="products" tone="dark">Explore products</ArrowLink></div></div></section>
       <div className="detail-metrics" aria-label="Solution highlights">{data.metrics.map((metric) => <div key={metric.label}><strong>{metric.value}</strong><span>{metric.label}</span></div>)}</div>
       <OrderedSections data={data} />
       <FinalCta data={data} />

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { AnimatedCta } from "@/components/animated-cta";
 import { Footer } from "@/components/home/footer";
 import { FooterCta } from "@/components/home/footer-cta";
 import { InViewReveal } from "@/components/home/in-view-reveal";
@@ -41,14 +42,6 @@ const sectionOrders: Record<NonNullable<InnerPageData["variant"]>, SectionName[]
   resources: ["faq", "features", "journey", "capabilities", "quote"],
   general: ["features", "journey", "capabilities", "quote", "faq"],
 };
-
-function ArrowIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className="size-5">
-      <path d="M5 12h13m-5-5 5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
 
 function FeatureIcon({ index }: { index: number }) {
   const paths = [
@@ -181,12 +174,12 @@ export function InnerPage({ data }: { data: InnerPageData }) {
           <h1 className="max-w-[1220px] text-[clamp(3.05rem,5.15vw,5.8rem)] font-semibold leading-[0.96] tracking-[-0.055em] lg:text-balance">{data.title}</h1>
           <p className="mt-7 max-w-[700px] text-[17px] leading-7 text-white/82 sm:text-lg">{data.description}</p>
           <div className="mt-9 flex flex-wrap gap-3">
-            <Link href="/contact" className="inline-flex min-h-13 items-center gap-3 rounded-lg bg-[#008F74] px-6 text-[15px] font-semibold text-white transition-colors hover:bg-[#005343]">
-              Talk To Our Team <ArrowIcon />
-            </Link>
-            <Link href="/products" className="inline-flex min-h-13 items-center gap-3 rounded-lg border border-white/70 bg-black/15 px-6 text-[15px] font-medium text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-[#005343]">
-              Explore Products <ArrowIcon />
-            </Link>
+            <AnimatedCta href="/contact" icon="contact" compact>
+              Talk To Our Team
+            </AnimatedCta>
+            <AnimatedCta href="/products" icon="products" compact>
+              Explore Products
+            </AnimatedCta>
           </div>
         </div>
       </section>
@@ -245,7 +238,9 @@ export function InnerPage({ data }: { data: InnerPageData }) {
                 </li>
               ))}
             </ul>
-            <Link href="/contact" className="mt-9 inline-flex min-h-12 w-fit items-center gap-3 rounded-lg bg-[#008F74] px-6 text-[15px] font-semibold text-white transition-colors hover:bg-[#005343]">Build Your Solution <ArrowIcon /></Link>
+            <AnimatedCta href="/contact" icon="build" tone="light" compact className="mt-9">
+              Build Your Solution
+            </AnimatedCta>
           </div>
         </section>
       </InViewReveal>

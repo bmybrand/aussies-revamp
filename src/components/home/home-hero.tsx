@@ -1,7 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useRef } from "react";
+import { AnimatedCta } from "@/components/animated-cta";
+import { HydrationSafeVideo } from "@/components/hydration-safe-video";
 import { EyebrowLabel } from "./eyebrow-label";
 import { HeroProgress, HeroSegmentNavigation } from "./hero-segments";
 import { Navbar } from "./navbar";
@@ -107,7 +108,7 @@ export function HomeHero({
         <div aria-hidden="true" className="absolute inset-0 -z-30 bg-zinc-600" />
 
         <div key={activeSlide.category} className="hero-slide-enter absolute inset-0 -z-20">
-          <video
+          <HydrationSafeVideo
             aria-hidden="true"
             autoPlay
             muted
@@ -118,7 +119,7 @@ export function HomeHero({
             className="size-full object-cover"
           >
             <source src={activeSlide.media.src} type="video/mp4" />
-          </video>
+          </HydrationSafeVideo>
         </div>
 
         <div
@@ -152,18 +153,18 @@ export function HomeHero({
               id="quote"
               className="flex shrink-0 flex-col gap-3 font-sans sm:flex-row lg:pb-1"
             >
-              <Link
+              <AnimatedCta
                 href={activeSlide.primaryCta.href}
-                className="inline-flex min-h-[53px] items-center justify-center rounded-lg bg-[#008F74] px-6 text-base font-medium text-white shadow-lg shadow-black/10 transition-colors hover:bg-[#005343]"
+                icon="quote"
               >
                 {activeSlide.primaryCta.label}
-              </Link>
-              <Link
+              </AnimatedCta>
+              <AnimatedCta
                 href={activeSlide.secondaryCta.href}
-                className="inline-flex min-h-[53px] items-center justify-center rounded-lg border border-white/80 bg-black/10 px-6 text-base font-medium text-white transition-colors hover:bg-white hover:text-zinc-950"
+                icon="products"
               >
                 {activeSlide.secondaryCta.label}
-              </Link>
+              </AnimatedCta>
             </div>
           </div>
         </div>
